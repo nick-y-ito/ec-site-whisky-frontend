@@ -8,9 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {},
+      backgroundImage: {
+        'radial-gradient': 'radial-gradient(circle, white, black)',
+      },
     },
   },
   plugins: [],
 };
+
 export default config;
