@@ -6,8 +6,7 @@ import ProductCard from '@/components/ProductCard';
 
 const Home = () => {
   const [keyword, setKeyword] = useState('');
-  // const [nameAsc, setNameAsc] = useState<boolean | null>();
-  // const [priceAsc, setPriceAsc] = useState<boolean | null>();
+  const [category, setCategory] = useState<Category>();
 
   let _whiskies = whiskies;
   if (keyword) {
@@ -16,12 +15,6 @@ const Home = () => {
   if (category) {
     _whiskies = _whiskies.filter((w) => w.category === category);
   }
-
-  // if (nameAsc !== null) {
-  //   _whiskies = _whiskies.sort((a, b) => {
-  //     if (a.name.toLowerCase() > b.name.toLowerCase()) return nameAsc ? 1 : -1;
-  //     if (a.name.toLowerCase() < b.name.toLowerCase()) return nameAsc ? -1 : 1;
-  //     return 0;
 
   return (
     <main>

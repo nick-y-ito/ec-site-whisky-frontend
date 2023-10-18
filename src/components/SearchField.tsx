@@ -8,7 +8,12 @@ interface SearchFieldProps {
 const SearchField: React.FC<SearchFieldProps> = ({ keyword, setKeyword }) => {
   return (
     <div className="h-[30px] border border-black flex items-center">
-      <input className='h-full' type="text" value={keyword} onChange={(e) => setKeyword(e.target.value)} />
+      <input
+        className="h-full"
+        type="text"
+        value={keyword}
+        onChange={(e) => setKeyword(e.target.value)}
+      />
       <HiOutlineMagnifyingGlass />
     </div>
   );

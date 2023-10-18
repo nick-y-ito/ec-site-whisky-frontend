@@ -10,7 +10,7 @@ const StarRating: React.FC<StarRatingProps> = ({ rating }) => {
   const decimal = Number((rating - int).toFixed(2));
   let fullStars = 0;
   let halfStar = 0;
-  
+
   if (decimal < 0.3) {
     fullStars = int;
   } else if (0.3 <= decimal && decimal < 0.8) {
