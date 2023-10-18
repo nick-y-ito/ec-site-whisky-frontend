@@ -10,7 +10,7 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ whisky }) => {
   return (
     <li className="shadow-xl rounded-lg hover:scale-105 duration-200">
-      <button className='w-full h-full'>
+      <button className="w-full h-full">
         <div className="py-2 h-[200px] bg-radial-gradient rounded-t-lg">
           <div className="w-full h-full relative">
             <Image
@@ -18,6 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ whisky }) => {
               src={`/images/whisky${whisky.imgPath}`}
               alt={whisky.name}
               fill
+              sizes="300px"
             />
           </div>
         </div>

@@ -23,9 +23,17 @@ const StarRating: React.FC<StarRatingProps> = ({ rating }) => {
 
   return (
     <>
-      {Array(fullStars).fill(<LiaStarSolid className="text-lg" />)}
+      {Array(fullStars)
+        .fill(null)
+        .map((_, i) => (
+          <LiaStarSolid key={i} className="text-lg" />
+        ))}
       {halfStar ? <LiaStarHalfAltSolid className="text-lg" /> : null}
-      {Array(emptyStars).fill(<LiaStar className="text-lg" />)}
+      {Array(emptyStars)
+        .fill(null)
+        .map((_, i) => (
+          <LiaStar key={i} className="text-lg" />
+        ))}
     </>
   );
 };
