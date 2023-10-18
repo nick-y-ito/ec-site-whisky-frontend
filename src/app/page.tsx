@@ -1,14 +1,18 @@
 'use client';
 import React, { useState } from 'react';
-import { Category, categories, whiskies } from '@/constants/whisky';
-import { CategoryFilter, SearchField, SortField } from '@/components';
+import { Category, whiskies } from '@/constants/whisky';
+import { Filter, SortField } from '@/components';
 import type { Sort } from '@/components';
 import ProductCard from '@/components/ProductCard';
+import { FiFilter } from 'react-icons/fi';
+import { BiSortUp } from 'react-icons/bi';
 
 const Home = () => {
   const [keyword, setKeyword] = useState('');
   const [category, setCategory] = useState<Category>();
   const [sort, setSort] = useState<Sort>();
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [sortOpen, setSortOpen] = useState(false);
 
   let _whiskies = whiskies;
   if (keyword) {
@@ -36,26 +40,66 @@ const Home = () => {
 
   return (
     <main>
-      <div className="w-full h-[500px] bg-[url('/images/barrels.jpg')] bg-cover px-14 flex justify-end items-center">
-        <div className="text-white text-right">
-          <h1 className="text-7xl">Whisky Voyage</h1>
-          <p className="text-gray-100 font-thin pt-5">Discover Your Perfect Whisky Match</p>
+      <div className="w-full h-[120px] sm:h-[200px] md:h-[300px] bg-[url('/images/barrels.jpg')] bg-cover px-14 flex justify-center lg:justify-end items-center">
+        <div className="text-white text-center lg:text-right">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-semibold ">Whisky Voyage</h1>
+          <p className="text-gray-100 text-xs sm:text-lg md:text-xl font-thin mt-1 sm:pt-5">
+            Discover Your Perfect Whisky Match
+          </p>
         </div>
       </div>
-      <div className="p-10 flex gap-10">
-        <aside className="w-[250px]">
-          <SearchField keyword={keyword} setKeyword={setKeyword} />
-          <p className="mt-3 text-xl font-bold">Categories</p>
-          <ul>
-            {categories.map((c, i) => (
-              <CategoryFilter key={i} c={c} category={category} setCategory={setCategory} />
-            ))}
-          </ul>
+      <div className="p-10 flex gap-10 justify-center relative">
+        <aside className="w-[250px] max-md:hidden">
+          <Filter
+            keyword={keyword}
+            setKeyword={setKeyword}
+            category={category}
+            setCategory={setCategory}
+          />
           <p className="mt-3 text-xl font-bold">Sort</p>
           <SortField setSort={setSort} />
         </aside>
-        <div className="w-full">
-          <ul className="grid grid-cols-5 gap-5">
+        <div className="w-full max-w-screen-2xl">
+          <div className="md:hidden">
+            <div className="h-[35px] mb-3 grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5">
+              <button
+                className={`flex justify-center items-center gap-2 border border-black rounded-sm ${
+                  (filterOpen || keyword || category) && 'bg-black text-white'
+                }`}
+                onClick={() => {
+                  setFilterOpen(!filterOpen);
+                  setSortOpen(false);
+                }}
+              >
+                <FiFilter />
+                Filter
+              </button>
+              <button
+                className={`flex justify-center items-center gap-2 border border-black rounded-sm ${
+                  (sortOpen || sort) && 'bg-black text-white'
+                }`}
+                onClick={() => {
+                  setSortOpen(!sortOpen);
+                  setFilterOpen(false);
+                }}
+              >
+                <BiSortUp />
+                Sort
+              </button>
+            </div>
+            <div className={`mb-3 ${!filterOpen && 'hidden'}`}>
+              <Filter
+                keyword={keyword}
+                setKeyword={setKeyword}
+                category={category}
+                setCategory={setCategory}
+              />
+            </div>
+            <div className={`mb-3 ${!sortOpen && 'hidden'}`}>
+              <SortField setSort={setSort} />
+            </div>
+          </div>
+          <ul className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5">
             {_whiskies.map((w, i) => (
               <ProductCard key={i} whisky={w} />
             ))}
