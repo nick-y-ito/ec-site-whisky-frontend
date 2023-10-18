@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { Category, whiskies } from '@/constants/whisky';
-import { Filter, ResetBtn, SearchField, SortField } from '@/components';
+import { CategoryFilter, ResetBtn, KeywordFilter, SortField } from '@/components';
 import type { Sort } from '@/components';
 import ProductCard from '@/components/ProductCard';
 import { FiFilter } from 'react-icons/fi';
@@ -49,8 +49,8 @@ const Home = () => {
       </div>
       <div className="p-10 flex gap-10 justify-center relative">
         <aside className="w-[250px] max-md:hidden">
-          <SearchField keyword={keyword} setKeyword={setKeyword} />
-          <Filter
+          <KeywordFilter keyword={keyword} setKeyword={setKeyword} />
+          <CategoryFilter
             keyword={keyword}
             setKeyword={setKeyword}
             category={category}
@@ -74,10 +74,10 @@ const Home = () => {
               </button>
             </div>
             <div className={`mb-3 ${!isOpen && 'hidden'}`}>
-              <SearchField keyword={keyword} setKeyword={setKeyword} />
+              <KeywordFilter keyword={keyword} setKeyword={setKeyword} />
               <div className="grid grid-cols-2">
                 <div>
-                  <Filter
+                  <CategoryFilter
                     keyword={keyword}
                     setKeyword={setKeyword}
                     category={category}

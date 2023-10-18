@@ -1,13 +1,13 @@
 import { Category, categories } from '@/constants/whisky';
 
-interface FilterProps {
+interface CategoryFilterProps {
   keyword: string;
   setKeyword: React.Dispatch<React.SetStateAction<string>>;
   category?: Category;
   setCategory: React.Dispatch<React.SetStateAction<Category | undefined>>;
 }
 
-const Filter: React.FC<FilterProps> = ({ category, setCategory }) => {
+const CategoryFilter: React.FC<CategoryFilterProps> = ({ category, setCategory }) => {
   return (
     <>
       <p className="mt-3 text-xl font-bold">Categories</p>
@@ -29,4 +29,4 @@ const Filter: React.FC<FilterProps> = ({ category, setCategory }) => {
   );
 };
 
-export default Filter;
+export default CategoryFilter;
