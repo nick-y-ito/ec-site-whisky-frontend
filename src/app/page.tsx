@@ -1,12 +1,14 @@
 'use client';
 import React, { useState } from 'react';
 import { Category, categories, whiskies } from '@/constants/whisky';
-import { CategoryFilter, SearchField } from '@/components';
+import { CategoryFilter, SearchField, SortField } from '@/components';
+import type { Sort } from '@/components';
 import ProductCard from '@/components/ProductCard';
 
 const Home = () => {
   const [keyword, setKeyword] = useState('');
   const [category, setCategory] = useState<Category>();
+  const [sort, setSort] = useState<Sort>();
 
   let _whiskies = whiskies;
   if (keyword) {
@@ -14,6 +16,22 @@ const Home = () => {
   }
   if (category) {
     _whiskies = _whiskies.filter((w) => w.category === category);
+  }
+
+  if (sort) {
+    if (sort === 'nameAsc' || sort === 'nameDesc') {
+      _whiskies = _whiskies.sort((a, b) => {
+        if (a.name.toLowerCase() > b.name.toLowerCase()) return sort === 'nameAsc' ? 1 : -1;
+        if (a.name.toLowerCase() < b.name.toLowerCase()) return sort === 'nameAsc' ? -1 : 1;
+        return 0;
+      });
+    } else if (sort === 'priceAsc' || sort === 'priceDesc') {
+      _whiskies = _whiskies.sort((a, b) => {
+        return sort === 'priceAsc'
+          ? Number((a.price - b.price).toFixed(2))
+          : Number((b.price - a.price).toFixed(2));
+      });
+    }
   }
 
   return (
@@ -33,6 +51,8 @@ const Home = () => {
               <CategoryFilter key={i} c={c} category={category} setCategory={setCategory} />
             ))}
           </ul>
+          <p className="mt-3 text-xl font-bold">Sort</p>
+          <SortField setSort={setSort} />
         </aside>
         <div className="w-full">
           <ul className="grid grid-cols-5 gap-5">
