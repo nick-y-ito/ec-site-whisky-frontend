@@ -1,41 +1,43 @@
 export type Sort = 'nameAsc' | 'nameDesc' | 'priceAsc' | 'priceDesc' | undefined;
 
 interface SortProps {
+  sort: Sort;
   setSort: React.Dispatch<React.SetStateAction<Sort>>;
 }
 
-type Category = {
+type SortType = {
   value: Sort;
   labe: string;
 };
 
-const categories: Category[] = [
+const sortTypes: SortType[] = [
   { value: 'nameAsc', labe: 'A → Z' },
   { value: 'nameDesc', labe: 'Z → A' },
   { value: 'priceAsc', labe: '$ → $$$' },
   { value: 'priceDesc', labe: '$$$ → $' },
 ];
 
-const SortField: React.FC<SortProps> = ({ setSort }) => {
+const SortField: React.FC<SortProps> = ({ sort, setSort }) => {
   const onSortChange = (val: Sort) => {
     setSort(val);
   };
 
   return (
     <>
-      {categories.map((c, i) => (
-        <div key={i}>
-          <input
-            className="mr-2"
-            type="radio"
-            name="sort"
-            id={c.value}
-            value={c.value}
-            onChange={(e) => onSortChange(e.target.value as Sort)}
-          />
-          <label htmlFor={c.value}>{c.labe}</label>
-        </div>
-      ))}
+      <p className="mt-3 text-xl font-bold">Sort</p>
+      <ul>
+        {sortTypes.map((c, i) => (
+          <li key={i}>
+            <button
+              className={`w-full text-left mr-2 ${c.value === sort && 'text-red-500'}`}
+              onClick={() => onSortChange(c.value)}
+            >
+              {' '}
+              {c.labe}
+            </button>
+          </li>
+        ))}
+      </ul>
     </>
   );
 };

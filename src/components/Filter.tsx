@@ -1,4 +1,3 @@
-import { CategoryFilter, SearchField } from '@/components';
 import { Category, categories } from '@/constants/whisky';
 
 interface FilterProps {
@@ -8,14 +7,22 @@ interface FilterProps {
   setCategory: React.Dispatch<React.SetStateAction<Category | undefined>>;
 }
 
-const Filter: React.FC<FilterProps> = ({ keyword, setKeyword, category, setCategory }) => {
+const Filter: React.FC<FilterProps> = ({ category, setCategory }) => {
   return (
     <>
-      <SearchField keyword={keyword} setKeyword={setKeyword} />
       <p className="mt-3 text-xl font-bold">Categories</p>
       <ul>
         {categories.map((c, i) => (
-          <CategoryFilter key={i} c={c} category={category} setCategory={setCategory} />
+          <li key={i}>
+            <button
+              className={`w-full text-left ${c === category && 'text-red-500'}`}
+              onClick={() => {
+                setCategory(c);
+              }}
+            >
+              {c}
+            </button>
+          </li>
         ))}
       </ul>
     </>
