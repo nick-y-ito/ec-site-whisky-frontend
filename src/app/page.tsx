@@ -4,10 +4,14 @@ import { whiskies } from '@/constants/whisky';
 import ProductCard from '@/components/ProductCard';
 
 const Home = () => {
+  const [keyword, setKeyword] = useState('');
   // const [nameAsc, setNameAsc] = useState<boolean | null>();
   // const [priceAsc, setPriceAsc] = useState<boolean | null>();
 
   let _whiskies = whiskies;
+  if (keyword) {
+    _whiskies = _whiskies.filter((w) => w.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1);
+  }
 
   // if (nameAsc !== null) {
   //   _whiskies = _whiskies.sort((a, b) => {
@@ -24,6 +28,9 @@ const Home = () => {
         </div>
       </div>
       <div className="p-10 flex gap-10">
+        <aside className="w-[250px]">
+          <SearchField keyword={keyword} setKeyword={setKeyword} />
+        </aside>
         <div className="w-full">
           <ul className="grid grid-cols-5 gap-5">
             {_whiskies.map((w, i) => (
