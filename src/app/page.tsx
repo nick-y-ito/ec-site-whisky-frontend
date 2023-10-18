@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import { whiskies } from '@/constants/whisky';
+import { Category, categories, whiskies } from '@/constants/whisky';
+import { CategoryFilter, SearchField } from '@/components';
 import ProductCard from '@/components/ProductCard';
 
 const Home = () => {
@@ -11,6 +12,9 @@ const Home = () => {
   let _whiskies = whiskies;
   if (keyword) {
     _whiskies = _whiskies.filter((w) => w.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1);
+  }
+  if (category) {
+    _whiskies = _whiskies.filter((w) => w.category === category);
   }
 
   // if (nameAsc !== null) {
@@ -30,6 +34,12 @@ const Home = () => {
       <div className="p-10 flex gap-10">
         <aside className="w-[250px]">
           <SearchField keyword={keyword} setKeyword={setKeyword} />
+          <p className="mt-3 text-xl font-bold">Categories</p>
+          <ul>
+            {categories.map((c, i) => (
+              <CategoryFilter key={i} c={c} category={category} setCategory={setCategory} />
+            ))}
+          </ul>
         </aside>
         <div className="w-full">
           <ul className="grid grid-cols-5 gap-5">
