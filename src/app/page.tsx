@@ -63,7 +63,7 @@ const Home = () => {
           <div className="md:hidden">
             <div className="h-[35px] mb-3 grid grid-cols-1">
               <button
-                className={`flex justify-center items-center gap-2 border border-black rounded-sm ${
+                className={`flex justify-center items-center gap-2 border border-black rounded-sm hover:bg-black hover:text-white ${
                   (isOpen || keyword || category || sort !== 'nameAsc') && 'bg-black text-white'
                 }`}
                 onClick={() => {

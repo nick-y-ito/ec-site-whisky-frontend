@@ -15,7 +15,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ category, setCategory }
         {categories.map((c, i) => (
           <li key={i}>
             <button
-              className={`w-full text-left ${c === category && 'text-red-500'}`}
+              className={`w-full text-left hover:opacity-50 ${c === category && 'text-red-500'}`}
               onClick={() => {
                 setCategory(c);
               }}

@@ -29,7 +29,7 @@ const SortField: React.FC<SortProps> = ({ sort, setSort }) => {
         {sortTypes.map((c, i) => (
           <li key={i}>
             <button
-              className={`w-full text-left mr-2 ${c.value === sort && 'text-red-500'}`}
+              className={`w-full text-left mr-2 hover:opacity-50 ${c.value === sort && 'text-red-500'}`}
               onClick={() => onSortChange(c.value)}
             >
               {' '}

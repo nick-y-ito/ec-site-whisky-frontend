@@ -11,7 +11,7 @@ const ResetBtn: React.FC<ResetBtnProps> = ({ setKeyword, setCategory, setSort })
   return (
     <div className="my-3 flex justify-center">
       <button
-        className="w-[100px] border border-gray-500 rounded-full"
+        className="w-[100px] border border-black rounded-full hover:text-white hover:bg-black"
         onClick={() => {
           setKeyword('');
           setCategory(undefined);
