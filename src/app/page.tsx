@@ -47,7 +47,7 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="p-10 flex gap-10 justify-center relative">
+      <div className="min-h-[120vh] p-10 flex gap-10 justify-center relative">
         <aside className="w-[250px] max-md:hidden">
           <KeywordFilter keyword={keyword} setKeyword={setKeyword} />
           <CategoryFilter
