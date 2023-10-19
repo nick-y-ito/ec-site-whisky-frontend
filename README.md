@@ -1,6 +1,6 @@
 # Whisky Voyage
 
-This repository hosts a single-page demo site for online shopping of Whisky, built using Next.js 13, TypeScript, and Tailwind CSS. The design was inspired by images generated with [DALL E 3](https://openai.com/dall-e-3). Data used for this project was sourced from the [BC Liquor Store](https://www.bcliquorstores.com/).
+This repository hosts a single-page demo site for online shopping of Whisky, built using Next.js 13, TypeScript, and Tailwind CSS. The design was inspired by images generated with [DALL·E 3](https://openai.com/dall-e-3). Data used for this project was sourced from the [BC Liquor Store](https://www.bcliquorstores.com/).
 
 ## Live Demo
 
