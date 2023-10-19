@@ -5,7 +5,7 @@ This repository hosts a single-page demo site for online shopping of Whisky, bui
 ## Live Demo
 
 You can view the deployed demo site on Vercel at the following URL:
-[https://whisky-c4rge56wv-uskayyyyy.vercel.app/](https://whisky-c4rge56wv-uskayyyyy.vercel.app/)
+[https://whisky-voyage.vercel.app/](https://whisky-voyage.vercel.app/)
 
 
 ## Getting Started
