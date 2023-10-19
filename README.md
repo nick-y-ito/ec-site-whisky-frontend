@@ -13,7 +13,7 @@ You can view the deployed demo site on Vercel at the following URL:
 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/whisky-voyage.git
+git clone <clone_url>
 cd whisky-voyage
 ```
 
