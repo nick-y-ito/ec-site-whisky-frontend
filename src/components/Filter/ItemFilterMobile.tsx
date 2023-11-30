@@ -8,6 +8,7 @@ import { ResetBtn } from '@/components/filter/ResetBtn';
 import { FiFilter } from 'react-icons/fi';
 import { BiSortUp } from 'react-icons/bi';
 import { useAppSelector } from '@/lib/redux/hooks';
+import { cn } from '@/lib/utils';
 
 export const ItemFilterMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,10 +21,11 @@ export const ItemFilterMobile = () => {
       <div className="md:hidden">
         <div className="h-[35px] mb-3 grid grid-cols-1">
           <button
-            className={`flex justify-center items-center gap-2 border border-black rounded-sm hover:bg-black hover:text-white ${
+            className={cn(
+              'flex justify-center items-center gap-2 border border-black rounded-sm hover:bg-black hover:text-white',
               (isOpen || keyword || category || !(sort.by === 'name' && sort.order === 'asc')) &&
-              'bg-black text-white'
-            }`}
+                'bg-black text-white',
+            )}
             onClick={() => {
               setIsOpen(!isOpen);
             }}
@@ -31,7 +33,7 @@ export const ItemFilterMobile = () => {
             <FiFilter />/<BiSortUp />
           </button>
         </div>
-        <div className={`mb-3 ${!isOpen && 'hidden'}`}>
+        <div className={cn('mb-3', !isOpen && 'hidden')}>
           <KeywordFilter />
           <div className="grid grid-cols-2">
             <div>

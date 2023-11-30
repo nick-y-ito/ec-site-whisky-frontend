@@ -3,6 +3,7 @@
 import { categories } from '@/data/whisky';
 import { useAppDispatch, useAppSelector } from '@/lib/redux/hooks';
 import { filterItems } from '@/lib/redux/slices/itemListSlice';
+import { cn } from '@/lib/utils';
 
 export const CategoryFilter = () => {
   const dispatch = useAppDispatch();
@@ -14,7 +15,7 @@ export const CategoryFilter = () => {
         {categories.map((c, i) => (
           <li key={i}>
             <button
-              className={`w-full text-left hover:opacity-50 ${c === category && 'text-red-500'}`}
+              className={cn('w-full text-left hover:opacity-50', c === category && 'text-red-500')}
               onClick={() => dispatch(filterItems({ category: c }))}
             >
               {c}
