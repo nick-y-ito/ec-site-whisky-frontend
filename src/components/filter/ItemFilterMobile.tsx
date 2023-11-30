@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { KeywordFilter } from '@/components/FilterStash/KeywordFilter';
-import { CategoryFilter } from '@/components/FilterStash/CategoryFilter';
-import { SortField } from '@/components/FilterStash/SortField';
-import { ResetBtn } from '@/components/FilterStash/ResetBtn';
+import { KeywordFilter } from '@/components/filter/KeywordFilter';
+import { CategoryFilter } from '@/components/filter/CategoryFilter';
+import { SortField } from '@/components/filter/SortField';
+import { ResetBtn } from '@/components/filter/ResetBtn';
 import { FiFilter } from 'react-icons/fi';
 import { BiSortUp } from 'react-icons/bi';
 import { useAppSelector } from '@/lib/redux/hooks';

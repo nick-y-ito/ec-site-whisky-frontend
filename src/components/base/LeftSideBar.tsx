@@ -1,7 +1,7 @@
-import { CategoryFilter } from "@/components/FilterStash/CategoryFilter";
-import { KeywordFilter } from "@/components/FilterStash/KeywordFilter";
-import { ResetBtn } from "@/components/FilterStash/ResetBtn";
-import { SortField } from "@/components/FilterStash/SortField";
+import { CategoryFilter } from "@/components/filter/CategoryFilter";
+import { KeywordFilter } from "@/components/filter/KeywordFilter";
+import { ResetBtn } from "@/components/filter/ResetBtn";
+import { SortField } from "@/components/filter/SortField";
 
 export const LeftSideBar = () => {
   return (
