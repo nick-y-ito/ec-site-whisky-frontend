@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { Providers } from '@/lib/redux/provider';
+import { Header } from '@/components/base/Header';
 
 export const metadata: Metadata = {
   title: 'Whisky Voyage',
@@ -8,9 +10,14 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <body className="">{children}</body>
-    </html>
+    <Providers>
+      <html lang="en">
+        <body className="relative">
+          <Header />
+          {children}
+          </body>
+      </html>
+    </Providers>
   );
 };
 

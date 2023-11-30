@@ -5,7 +5,7 @@ interface StarRatingProps {
   rating: number;
 }
 
-const StarRating: React.FC<StarRatingProps> = ({ rating }) => {
+export const StarRating: React.FC<StarRatingProps> = ({ rating }) => {
   const int = Math.floor(rating);
   const decimal = Number((rating - int).toFixed(2));
   let fullStars = 0;
@@ -37,5 +37,3 @@ const StarRating: React.FC<StarRatingProps> = ({ rating }) => {
     </>
   );
 };
-
-export default StarRating;

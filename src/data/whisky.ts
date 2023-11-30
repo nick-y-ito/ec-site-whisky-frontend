@@ -1,7 +1,8 @@
 export const categories = ['Scotch', 'Bourbon', 'Irish', 'Canadian', 'Japanese'] as const;
 export type Category = (typeof categories)[number] & string;
 
-export type whisky = {
+export type Whisky = {
+  id: number;
   name: string;
   price: number;
   category: Category;
@@ -9,8 +10,9 @@ export type whisky = {
   imgPath: `/${string}.png`;
 };
 
-export const whiskies: whisky[] = [
+export const whiskies: Whisky[] = [
   {
+    id: 1,
     name: 'ABERFELDY - 12 YEAR OLD',
     price: 69.99,
     category: 'Scotch',
@@ -18,6 +20,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch/aberfeldy.png',
   },
   {
+    id: 2,
     name: 'ARDBEG - 10 YEAR OLD',
     price: 112.99,
     category: 'Scotch',
@@ -25,6 +28,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch/ardbeg.png',
   },
   {
+    id: 3,
     name: 'BOWMORE - 12 YEAR OLD',
     price: 69.99,
     category: 'Scotch',
@@ -32,6 +36,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch/bowmore.png',
   },
   {
+    id: 4,
     name: 'BRUICHLADDICH - SCOTTISH BARLEY THE LADDIE CLASSIC',
     price: 85.99,
     category: 'Scotch',
@@ -39,6 +44,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch/bruichladdich.png',
   },
   {
+    id: 5,
     name: 'DALMORE - 12 YEAR OLD',
     price: 114.99,
     category: 'Scotch',
@@ -46,6 +52,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch/dalmore.png',
   },
   {
+    id: 6,
     name: 'GLENFIDDICH SPECIAL RESERVE - 12 YEAR OLD',
     price: 73.99,
     category: 'Scotch',
@@ -53,6 +60,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch/glenfiddich.png',
   },
   {
+    id: 7,
     name: 'GLENLIVET - 12 YEAR OLD',
     price: 75.99,
     category: 'Scotch',
@@ -60,6 +68,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch/glenlivet.png',
   },
   {
+    id: 8,
     name: 'GLENMORANGIE - 10 YEAR OLD THE categoryAL',
     price: 74.99,
     category: 'Scotch',
@@ -67,6 +76,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch/glenmorangie.png',
   },
   {
+    id: 9,
     name: 'HIGHLAND PARK - 12 YEAR OLD',
     price: 79.99,
     category: 'Scotch',
@@ -74,6 +84,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch/highland-park.png',
   },
   {
+    id: 10,
     name: 'LAGAVULIN - 8 YEAR OLD',
     price: 99.99,
     category: 'Scotch',
@@ -81,6 +92,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch/lagavulin.png',
   },
   {
+    id: 11,
     name: 'LAPHROAIG - 10 YEAR OLD',
     price: 84.99,
     category: 'Scotch',
@@ -88,6 +100,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch/laphroaig.png',
   },
   {
+    id: 12,
     name: 'MACALLAN - SHERRY OAK 12 YEAR OLD',
     price: 174.99,
     category: 'Scotch',
@@ -95,6 +108,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch/macallan.png',
   },
   {
+    id: 13,
     name: 'TALISKER - 10 YEAR OLD',
     price: 119.99,
     category: 'Scotch',
@@ -102,6 +116,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch/talisker.png',
   },
   {
+    id: 14,
     name: "BALLANTINE'S - FINEST",
     price: 29.99,
     category: 'Scotch',
@@ -109,6 +124,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch-blended/ballantines.png',
   },
   {
+    id: 15,
     name: 'CHIVAS REGAL - 12 YEAR OLD',
     price: 60.99,
     category: 'Scotch',
@@ -116,6 +132,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch-blended/chivas-regal.png',
   },
   {
+    id: 16,
     name: 'CUTTY SARK',
     price: 27.99,
     category: 'Scotch',
@@ -123,6 +140,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch-blended/cutty-sark.png',
   },
   {
+    id: 17,
     name: "DEWAR'S - WHITE LABEL",
     price: 27.49,
     category: 'Scotch',
@@ -130,6 +148,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch-blended/dewars.png',
   },
   {
+    id: 18,
     name: "GRANT'S - TRIPLE WOOD",
     price: 28.99,
     category: 'Scotch',
@@ -137,6 +156,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch-blended/grants.png',
   },
   {
+    id: 19,
     name: 'JOHNNIE WALKER - 12 YEAR OLD BLACK LABEL',
     price: 63.99,
     category: 'Scotch',
@@ -144,6 +164,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch-blended/johnnie-walker-black.png',
   },
   {
+    id: 20,
     name: 'JOHNNIE WALKER - RED LABEL',
     price: 31.99,
     category: 'Scotch',
@@ -151,6 +172,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch-blended/johnnie-walker-red.png',
   },
   {
+    id: 21,
     name: 'MATTHEW GLOAG - THE FAMOUS GROUSE',
     price: 28.99,
     category: 'Scotch',
@@ -158,6 +180,7 @@ export const whiskies: whisky[] = [
     imgPath: '/scotch-blended/famous-grouse.png',
   },
   {
+    id: 22,
     name: "BOOKER'S - BOURBON SMALL BATCH",
     price: 135.99,
     category: 'Bourbon',
@@ -165,6 +188,7 @@ export const whiskies: whisky[] = [
     imgPath: '/bourbon/bookers.png',
   },
   {
+    id: 23,
     name: "JACK DANIEL'S - OLD 7",
     price: 37.49,
     category: 'Bourbon',
@@ -172,6 +196,7 @@ export const whiskies: whisky[] = [
     imgPath: '/bourbon/jack-daniels.png',
   },
   {
+    id: 24,
     name: 'BULLEIT - FRONTIER BOURBON',
     price: 44.99,
     category: 'Bourbon',
@@ -179,6 +204,7 @@ export const whiskies: whisky[] = [
     imgPath: '/bourbon/bulleit.png',
   },
   {
+    id: 25,
     name: 'JIM BEAM - KENTUCKY BOURBON',
     price: 31.99,
     category: 'Bourbon',
@@ -186,6 +212,7 @@ export const whiskies: whisky[] = [
     imgPath: '/bourbon/jim-beam.png',
   },
   {
+    id: 26,
     name: 'KNOB CREEK - 9 YEAR OLD BOURBON SMALL BATCH',
     price: 53.99,
     category: 'Bourbon',
@@ -193,6 +220,7 @@ export const whiskies: whisky[] = [
     imgPath: '/bourbon/knob-creek.png',
   },
   {
+    id: 27,
     name: "MAKER'S MARK - KENTUCKY BOURBON",
     price: 46.99,
     category: 'Bourbon',
@@ -200,6 +228,7 @@ export const whiskies: whisky[] = [
     imgPath: '/bourbon/makers-mark.png',
   },
   {
+    id: 28,
     name: 'OLD FORESTER - 1920 WHISKEY ROW SERIES',
     price: 92.99,
     category: 'Bourbon',
@@ -207,6 +236,7 @@ export const whiskies: whisky[] = [
     imgPath: '/bourbon/old-forester.png',
   },
   {
+    id: 29,
     name: 'RABBIT HOLE - CAVEHILL',
     price: 77.99,
     category: 'Bourbon',
@@ -214,6 +244,7 @@ export const whiskies: whisky[] = [
     imgPath: '/bourbon/rabbit-hole.png',
   },
   {
+    id: 30,
     name: 'WILD TURKEY - 81 PROOF',
     price: 32.99,
     category: 'Bourbon',
@@ -221,6 +252,7 @@ export const whiskies: whisky[] = [
     imgPath: '/bourbon/wild-turkey.png',
   },
   {
+    id: 31,
     name: 'WOODFORD RESERVE - DISTILLERS SELECT',
     price: 53.99,
     category: 'Bourbon',
@@ -228,6 +260,7 @@ export const whiskies: whisky[] = [
     imgPath: '/bourbon/woodford-reserve.png',
   },
   {
+    id: 32,
     name: 'BUSHMILLS - BLACK BUSH',
     price: 40.49,
     category: 'Irish',
@@ -235,6 +268,7 @@ export const whiskies: whisky[] = [
     imgPath: '/irish/bushmills.png',
   },
   {
+    id: 33,
     name: 'GLENDALOUGH - DOUBLE BARREL',
     price: 49.99,
     category: 'Irish',
@@ -242,6 +276,7 @@ export const whiskies: whisky[] = [
     imgPath: '/irish/glendalough.png',
   },
   {
+    id: 34,
     name: 'JAMESON - IRISH',
     price: 38.49,
     category: 'Irish',
@@ -249,6 +284,7 @@ export const whiskies: whisky[] = [
     imgPath: '/irish/jameson.png',
   },
   {
+    id: 35,
     name: 'TULLAMORE DEW',
     price: 39.99,
     category: 'Irish',
@@ -256,6 +292,7 @@ export const whiskies: whisky[] = [
     imgPath: '/irish/tullamore.png',
   },
   {
+    id: 36,
     name: 'ALBERTA PREMIUM - CANADIAN RYE',
     price: 22.99,
     category: 'Canadian',
@@ -263,6 +300,7 @@ export const whiskies: whisky[] = [
     imgPath: '/canadian/alberta-premium.png',
   },
   {
+    id: 37,
     name: 'CANADIAN CLUB - PREMIUM',
     price: 23.49,
     category: 'Canadian',
@@ -270,6 +308,7 @@ export const whiskies: whisky[] = [
     imgPath: '/canadian/canadian-club.png',
   },
   {
+    id: 38,
     name: "CANADIAN CLUB - 100% RYE CHAIRMAN'S SELECT",
     price: 24.99,
     category: 'Canadian',
@@ -277,6 +316,7 @@ export const whiskies: whisky[] = [
     imgPath: '/canadian/canadian-club-100-rye.png',
   },
   {
+    id: 39,
     name: 'CROWN ROYAL',
     price: 28.99,
     category: 'Canadian',
@@ -284,6 +324,7 @@ export const whiskies: whisky[] = [
     imgPath: '/canadian/crown-royal.png',
   },
   {
+    id: 40,
     name: 'FORTY CREEK - BARREL SELECT',
     price: 27.49,
     category: 'Canadian',
@@ -291,6 +332,7 @@ export const whiskies: whisky[] = [
     imgPath: '/canadian/forty-creek.png',
   },
   {
+    id: 41,
     name: 'REIFEL RYE - CANADIAN WHISKY',
     price: 43.99,
     category: 'Canadian',
@@ -298,6 +340,7 @@ export const whiskies: whisky[] = [
     imgPath: '/canadian/reifel-rye.png',
   },
   {
+    id: 42,
     name: "J. P. WISER'S DELUXE",
     price: 25.49,
     category: 'Canadian',
@@ -305,6 +348,7 @@ export const whiskies: whisky[] = [
     imgPath: '/canadian/wisers.png',
   },
   {
+    id: 43,
     name: 'AKASHI JAPANESE BLENDED WHISKY',
     price: 70.99,
     category: 'Japanese',
@@ -312,6 +356,7 @@ export const whiskies: whisky[] = [
     imgPath: '/japanese/akashi.png',
   },
   {
+    id: 44,
     name: 'SUNTORY - WORLD WHISKY AO',
     price: 99.99,
     category: 'Japanese',
@@ -319,6 +364,7 @@ export const whiskies: whisky[] = [
     imgPath: '/japanese/ao.png',
   },
   {
+    id: 45,
     name: 'SUNTORY WHISKY - HIBIKI JAPANESE HARMONY',
     price: 161.99,
     category: 'Japanese',
@@ -326,6 +372,7 @@ export const whiskies: whisky[] = [
     imgPath: '/japanese/hibiki.png',
   },
   {
+    id: 46,
     name: 'NIKKA - TAKETSURU PURE MALT',
     price: 88.99,
     category: 'Japanese',
@@ -333,6 +380,7 @@ export const whiskies: whisky[] = [
     imgPath: '/japanese/taketsuru.png',
   },
   {
+    id: 47,
     name: 'NIKKA - YOICHI SINGLE MALT',
     price: 94.99,
     category: 'Japanese',
