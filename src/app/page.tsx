@@ -1,6 +1,6 @@
 import { HeroSection } from '@/components/base/HeroSection';
 import { LeftSideBar } from '@/components/base/LeftSideBar';
-import { ItemFilterMobile } from '@/components/filter/ItemFilterMobile';
+import { ItemFilterMobile } from '@/components/FilterStash/ItemFilterMobile';
 import { ItemList } from '@/components/base/ItemList';
 
 const Home = () => {
