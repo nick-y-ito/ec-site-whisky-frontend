@@ -1,17 +1,15 @@
 import { useEffect } from 'react';
 
-const CLASS_NAME = 'overflow-hidden';
-
 export const useDisableBodyScroll = (active: boolean): void => {
   useEffect(() => {
-    const classList = document.body.classList;
+    const style = document.body.style;
     if (active) {
-      classList.add(CLASS_NAME);
+      style.overflow = 'hidden';
     } else {
-      classList.remove(CLASS_NAME);
+      style.overflow = '';
     }
     return () => {
-      classList.remove(CLASS_NAME);
+      style.overflow = '';
     };
   }, [active]);
 };
