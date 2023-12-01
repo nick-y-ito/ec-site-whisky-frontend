@@ -3,18 +3,23 @@ import { cn } from '@/lib/utils';
 interface OverlayProps {
   children?: React.ReactNode;
   className?: string;
-  onClose?: () => void;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-export const Overlay = ({ children, className, onClose }: OverlayProps) => {
+export const Overlay = ({ children, className, isOpen, onClose }: OverlayProps) => {
   return (
-    <div className={cn('fixed inset-0 bg-black bg-opacity-50 z-50', className)} onClick={onClose}>
+    <div className={cn(className, isOpen || 'hidden')}>
       <div
-        className="absolute bg-white p-4 rounded-lg shadow-xl h-auto max-w-sm w-full"
-        // onClick={stopPropagation}
-      >
-        {children}
-      </div>
+        className={cn(
+          'fixed inset-0 z-50',
+          'bg-black bg-opacity-50',
+          'transition-all ease-in-out duration-1000',
+          isOpen ? 'opacity-100' : 'opacity-0',
+        )}
+        onClick={onClose}
+      ></div>
+      {children}
     </div>
   );
 };
