@@ -15,9 +15,8 @@ export const Drawer = ({ children, isOpen, onClose }: DrawerProps) => {
     <Overlay isOpen={isOpen} onClose={onClose}>
       <div
         className={cn(
-          'w-full max-w-[400px] h-screen',
-          'bg-white',
-          'fixed right-0 top-0 z-50',
+          'w-full sm:max-w-sm h-4/5 sm:h-screen bg-white',
+          'fixed z-50 bottom-0 right-0',
           'transition-transform ease-in-out duration-500',
           isOpen ? 'translate-x-0' : 'translate-x-full',
         )}
