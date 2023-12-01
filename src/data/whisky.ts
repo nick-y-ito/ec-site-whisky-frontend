@@ -4,7 +4,7 @@ export type Category = (typeof categories)[number] & string;
 export type Whisky = {
   id: number;
   name: string;
-  price: number;
+  priceInCent: number
   category: Category;
   rating: number;
   imgPath: `/${string}.png`;
@@ -14,7 +14,7 @@ export const whiskies: Whisky[] = [
   {
     id: 1,
     name: 'ABERFELDY - 12 YEAR OLD',
-    price: 69.99,
+    priceInCent: 6999,
     category: 'Scotch',
     rating: 3.9,
     imgPath: '/scotch/aberfeldy.png',
@@ -22,7 +22,7 @@ export const whiskies: Whisky[] = [
   {
     id: 2,
     name: 'ARDBEG - 10 YEAR OLD',
-    price: 112.99,
+    priceInCent: 11299,
     category: 'Scotch',
     rating: 4.3,
     imgPath: '/scotch/ardbeg.png',
@@ -30,7 +30,7 @@ export const whiskies: Whisky[] = [
   {
     id: 3,
     name: 'BOWMORE - 12 YEAR OLD',
-    price: 69.99,
+    priceInCent: 6999,
     category: 'Scotch',
     rating: 3.7,
     imgPath: '/scotch/bowmore.png',
@@ -38,7 +38,7 @@ export const whiskies: Whisky[] = [
   {
     id: 4,
     name: 'BRUICHLADDICH - SCOTTISH BARLEY THE LADDIE CLASSIC',
-    price: 85.99,
+    priceInCent: 8599,
     category: 'Scotch',
     rating: 3.9,
     imgPath: '/scotch/bruichladdich.png',
@@ -46,7 +46,7 @@ export const whiskies: Whisky[] = [
   {
     id: 5,
     name: 'DALMORE - 12 YEAR OLD',
-    price: 114.99,
+    priceInCent: 11499,
     category: 'Scotch',
     rating: 4.0,
     imgPath: '/scotch/dalmore.png',
@@ -54,7 +54,7 @@ export const whiskies: Whisky[] = [
   {
     id: 6,
     name: 'GLENFIDDICH SPECIAL RESERVE - 12 YEAR OLD',
-    price: 73.99,
+    priceInCent: 7399,
     category: 'Scotch',
     rating: 3.7,
     imgPath: '/scotch/glenfiddich.png',
@@ -62,7 +62,7 @@ export const whiskies: Whisky[] = [
   {
     id: 7,
     name: 'GLENLIVET - 12 YEAR OLD',
-    price: 75.99,
+    priceInCent: 7599,
     category: 'Scotch',
     rating: 3.6,
     imgPath: '/scotch/glenlivet.png',
@@ -70,7 +70,7 @@ export const whiskies: Whisky[] = [
   {
     id: 8,
     name: 'GLENMORANGIE - 10 YEAR OLD THE categoryAL',
-    price: 74.99,
+    priceInCent: 7499,
     category: 'Scotch',
     rating: 4.1,
     imgPath: '/scotch/glenmorangie.png',
@@ -78,7 +78,7 @@ export const whiskies: Whisky[] = [
   {
     id: 9,
     name: 'HIGHLAND PARK - 12 YEAR OLD',
-    price: 79.99,
+    priceInCent: 7999,
     category: 'Scotch',
     rating: 4.1,
     imgPath: '/scotch/highland-park.png',
@@ -86,7 +86,7 @@ export const whiskies: Whisky[] = [
   {
     id: 10,
     name: 'LAGAVULIN - 8 YEAR OLD',
-    price: 99.99,
+    priceInCent: 9999,
     category: 'Scotch',
     rating: 4.1,
     imgPath: '/scotch/lagavulin.png',
@@ -94,7 +94,7 @@ export const whiskies: Whisky[] = [
   {
     id: 11,
     name: 'LAPHROAIG - 10 YEAR OLD',
-    price: 84.99,
+    priceInCent: 8499,
     category: 'Scotch',
     rating: 4.3,
     imgPath: '/scotch/laphroaig.png',
@@ -102,7 +102,7 @@ export const whiskies: Whisky[] = [
   {
     id: 12,
     name: 'MACALLAN - SHERRY OAK 12 YEAR OLD',
-    price: 174.99,
+    priceInCent: 17499,
     category: 'Scotch',
     rating: 4.4,
     imgPath: '/scotch/macallan.png',
@@ -110,7 +110,7 @@ export const whiskies: Whisky[] = [
   {
     id: 13,
     name: 'TALISKER - 10 YEAR OLD',
-    price: 119.99,
+    priceInCent: 11999,
     category: 'Scotch',
     rating: 4.4,
     imgPath: '/scotch/talisker.png',
@@ -118,7 +118,7 @@ export const whiskies: Whisky[] = [
   {
     id: 14,
     name: "BALLANTINE'S - FINEST",
-    price: 29.99,
+    priceInCent: 2999,
     category: 'Scotch',
     rating: 3,
     imgPath: '/scotch-blended/ballantines.png',
@@ -126,7 +126,7 @@ export const whiskies: Whisky[] = [
   {
     id: 15,
     name: 'CHIVAS REGAL - 12 YEAR OLD',
-    price: 60.99,
+    priceInCent: 6099,
     category: 'Scotch',
     rating: 3.2,
     imgPath: '/scotch-blended/chivas-regal.png',
@@ -134,7 +134,7 @@ export const whiskies: Whisky[] = [
   {
     id: 16,
     name: 'CUTTY SARK',
-    price: 27.99,
+    priceInCent: 2799,
     category: 'Scotch',
     rating: 3.3,
     imgPath: '/scotch-blended/cutty-sark.png',
@@ -142,7 +142,7 @@ export const whiskies: Whisky[] = [
   {
     id: 17,
     name: "DEWAR'S - WHITE LABEL",
-    price: 27.49,
+    priceInCent: 2749,
     category: 'Scotch',
     rating: 3.8,
     imgPath: '/scotch-blended/dewars.png',
@@ -150,7 +150,7 @@ export const whiskies: Whisky[] = [
   {
     id: 18,
     name: "GRANT'S - TRIPLE WOOD",
-    price: 28.99,
+    priceInCent: 2899,
     category: 'Scotch',
     rating: 3.2,
     imgPath: '/scotch-blended/grants.png',
@@ -158,7 +158,7 @@ export const whiskies: Whisky[] = [
   {
     id: 19,
     name: 'JOHNNIE WALKER - 12 YEAR OLD BLACK LABEL',
-    price: 63.99,
+    priceInCent: 6399,
     category: 'Scotch',
     rating: 3.8,
     imgPath: '/scotch-blended/johnnie-walker-black.png',
@@ -166,7 +166,7 @@ export const whiskies: Whisky[] = [
   {
     id: 20,
     name: 'JOHNNIE WALKER - RED LABEL',
-    price: 31.99,
+    priceInCent: 3199,
     category: 'Scotch',
     rating: 2.9,
     imgPath: '/scotch-blended/johnnie-walker-red.png',
@@ -174,7 +174,7 @@ export const whiskies: Whisky[] = [
   {
     id: 21,
     name: 'MATTHEW GLOAG - THE FAMOUS GROUSE',
-    price: 28.99,
+    priceInCent: 2899,
     category: 'Scotch',
     rating: 3.8,
     imgPath: '/scotch-blended/famous-grouse.png',
@@ -182,7 +182,7 @@ export const whiskies: Whisky[] = [
   {
     id: 22,
     name: "BOOKER'S - BOURBON SMALL BATCH",
-    price: 135.99,
+    priceInCent: 13599,
     category: 'Bourbon',
     rating: 4.2,
     imgPath: '/bourbon/bookers.png',
@@ -190,7 +190,7 @@ export const whiskies: Whisky[] = [
   {
     id: 23,
     name: "JACK DANIEL'S - OLD 7",
-    price: 37.49,
+    priceInCent: 3749,
     category: 'Bourbon',
     rating: 3.7,
     imgPath: '/bourbon/jack-daniels.png',
@@ -198,7 +198,7 @@ export const whiskies: Whisky[] = [
   {
     id: 24,
     name: 'BULLEIT - FRONTIER BOURBON',
-    price: 44.99,
+    priceInCent: 4499,
     category: 'Bourbon',
     rating: 3.9,
     imgPath: '/bourbon/bulleit.png',
@@ -206,7 +206,7 @@ export const whiskies: Whisky[] = [
   {
     id: 25,
     name: 'JIM BEAM - KENTUCKY BOURBON',
-    price: 31.99,
+    priceInCent: 3199,
     category: 'Bourbon',
     rating: 3.5,
     imgPath: '/bourbon/jim-beam.png',
@@ -214,7 +214,7 @@ export const whiskies: Whisky[] = [
   {
     id: 26,
     name: 'KNOB CREEK - 9 YEAR OLD BOURBON SMALL BATCH',
-    price: 53.99,
+    priceInCent: 5399,
     category: 'Bourbon',
     rating: 4.1,
     imgPath: '/bourbon/knob-creek.png',
@@ -222,7 +222,7 @@ export const whiskies: Whisky[] = [
   {
     id: 27,
     name: "MAKER'S MARK - KENTUCKY BOURBON",
-    price: 46.99,
+    priceInCent: 4699,
     category: 'Bourbon',
     rating: 4.0,
     imgPath: '/bourbon/makers-mark.png',
@@ -230,7 +230,7 @@ export const whiskies: Whisky[] = [
   {
     id: 28,
     name: 'OLD FORESTER - 1920 WHISKEY ROW SERIES',
-    price: 92.99,
+    priceInCent: 9299,
     category: 'Bourbon',
     rating: 4.2,
     imgPath: '/bourbon/old-forester.png',
@@ -238,7 +238,7 @@ export const whiskies: Whisky[] = [
   {
     id: 29,
     name: 'RABBIT HOLE - CAVEHILL',
-    price: 77.99,
+    priceInCent: 7799,
     category: 'Bourbon',
     rating: 4.4,
     imgPath: '/bourbon/rabbit-hole.png',
@@ -246,7 +246,7 @@ export const whiskies: Whisky[] = [
   {
     id: 30,
     name: 'WILD TURKEY - 81 PROOF',
-    price: 32.99,
+    priceInCent: 3299,
     category: 'Bourbon',
     rating: 3.6,
     imgPath: '/bourbon/wild-turkey.png',
@@ -254,7 +254,7 @@ export const whiskies: Whisky[] = [
   {
     id: 31,
     name: 'WOODFORD RESERVE - DISTILLERS SELECT',
-    price: 53.99,
+    priceInCent: 5399,
     category: 'Bourbon',
     rating: 4.3,
     imgPath: '/bourbon/woodford-reserve.png',
@@ -262,7 +262,7 @@ export const whiskies: Whisky[] = [
   {
     id: 32,
     name: 'BUSHMILLS - BLACK BUSH',
-    price: 40.49,
+    priceInCent: 4049,
     category: 'Irish',
     rating: 4.2,
     imgPath: '/irish/bushmills.png',
@@ -270,7 +270,7 @@ export const whiskies: Whisky[] = [
   {
     id: 33,
     name: 'GLENDALOUGH - DOUBLE BARREL',
-    price: 49.99,
+    priceInCent: 4999,
     category: 'Irish',
     rating: 4.2,
     imgPath: '/irish/glendalough.png',
@@ -278,7 +278,7 @@ export const whiskies: Whisky[] = [
   {
     id: 34,
     name: 'JAMESON - IRISH',
-    price: 38.49,
+    priceInCent: 3849,
     category: 'Irish',
     rating: 4.1,
     imgPath: '/irish/jameson.png',
@@ -286,7 +286,7 @@ export const whiskies: Whisky[] = [
   {
     id: 35,
     name: 'TULLAMORE DEW',
-    price: 39.99,
+    priceInCent: 3999,
     category: 'Irish',
     rating: 3.8,
     imgPath: '/irish/tullamore.png',
@@ -294,7 +294,7 @@ export const whiskies: Whisky[] = [
   {
     id: 36,
     name: 'ALBERTA PREMIUM - CANADIAN RYE',
-    price: 22.99,
+    priceInCent: 2299,
     category: 'Canadian',
     rating: 4.1,
     imgPath: '/canadian/alberta-premium.png',
@@ -302,7 +302,7 @@ export const whiskies: Whisky[] = [
   {
     id: 37,
     name: 'CANADIAN CLUB - PREMIUM',
-    price: 23.49,
+    priceInCent: 2349,
     category: 'Canadian',
     rating: 3.7,
     imgPath: '/canadian/canadian-club.png',
@@ -310,7 +310,7 @@ export const whiskies: Whisky[] = [
   {
     id: 38,
     name: "CANADIAN CLUB - 100% RYE CHAIRMAN'S SELECT",
-    price: 24.99,
+    priceInCent: 2499,
     category: 'Canadian',
     rating: 4.0,
     imgPath: '/canadian/canadian-club-100-rye.png',
@@ -318,7 +318,7 @@ export const whiskies: Whisky[] = [
   {
     id: 39,
     name: 'CROWN ROYAL',
-    price: 28.99,
+    priceInCent: 2899,
     category: 'Canadian',
     rating: 3.6,
     imgPath: '/canadian/crown-royal.png',
@@ -326,7 +326,7 @@ export const whiskies: Whisky[] = [
   {
     id: 40,
     name: 'FORTY CREEK - BARREL SELECT',
-    price: 27.49,
+    priceInCent: 2749,
     category: 'Canadian',
     rating: 4.2,
     imgPath: '/canadian/forty-creek.png',
@@ -334,7 +334,7 @@ export const whiskies: Whisky[] = [
   {
     id: 41,
     name: 'REIFEL RYE - CANADIAN WHISKY',
-    price: 43.99,
+    priceInCent: 4399,
     category: 'Canadian',
     rating: 4.2,
     imgPath: '/canadian/reifel-rye.png',
@@ -342,7 +342,7 @@ export const whiskies: Whisky[] = [
   {
     id: 42,
     name: "J. P. WISER'S DELUXE",
-    price: 25.49,
+    priceInCent: 2549,
     category: 'Canadian',
     rating: 3.6,
     imgPath: '/canadian/wisers.png',
@@ -350,7 +350,7 @@ export const whiskies: Whisky[] = [
   {
     id: 43,
     name: 'AKASHI JAPANESE BLENDED WHISKY',
-    price: 70.99,
+    priceInCent: 7099,
     category: 'Japanese',
     rating: 4.2,
     imgPath: '/japanese/akashi.png',
@@ -358,7 +358,7 @@ export const whiskies: Whisky[] = [
   {
     id: 44,
     name: 'SUNTORY - WORLD WHISKY AO',
-    price: 99.99,
+    priceInCent: 9999,
     category: 'Japanese',
     rating: 4,
     imgPath: '/japanese/ao.png',
@@ -366,7 +366,7 @@ export const whiskies: Whisky[] = [
   {
     id: 45,
     name: 'SUNTORY WHISKY - HIBIKI JAPANESE HARMONY',
-    price: 161.99,
+    priceInCent: 16199,
     category: 'Japanese',
     rating: 4.2,
     imgPath: '/japanese/hibiki.png',
@@ -374,7 +374,7 @@ export const whiskies: Whisky[] = [
   {
     id: 46,
     name: 'NIKKA - TAKETSURU PURE MALT',
-    price: 88.99,
+    priceInCent: 8899,
     category: 'Japanese',
     rating: 4.7,
     imgPath: '/japanese/taketsuru.png',
@@ -382,7 +382,7 @@ export const whiskies: Whisky[] = [
   {
     id: 47,
     name: 'NIKKA - YOICHI SINGLE MALT',
-    price: 94.99,
+    priceInCent: 9499,
     category: 'Japanese',
     rating: 4.5,
     imgPath: '/japanese/yoichi.png',

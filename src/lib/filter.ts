@@ -18,7 +18,7 @@ export const sortItemsList = (items: Whisky[], sort: Sort): Whisky[] => {
     if (by === 'name') {
       return order === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
     } else if (by === 'price') {
-      return order === 'asc' ? a.price - b.price : b.price - a.price;
+      return order === 'asc' ? a.priceInCent - b.priceInCent : b.priceInCent - a.priceInCent;
     } else {
       return 0;
     }
