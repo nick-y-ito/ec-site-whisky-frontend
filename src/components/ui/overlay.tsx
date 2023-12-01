@@ -1,4 +1,6 @@
+import { useDisableBodyScroll } from '@/lib/hooks/useDisableBodyScroll';
 import { cn } from '@/lib/utils';
+import { useEffect } from 'react';
 
 interface OverlayProps {
   children?: React.ReactNode;
@@ -8,6 +10,8 @@ interface OverlayProps {
 }
 
 export const Overlay = ({ children, className, isOpen, onClose }: OverlayProps) => {
+  useDisableBodyScroll(isOpen);
+
   return (
     <div className={cn(className, isOpen || 'hidden')}>
       <div
