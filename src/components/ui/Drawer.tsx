@@ -2,6 +2,7 @@
 
 import { Overlay } from '@/components/ui/overlay';
 import { cn } from '@/lib/utils';
+import { RxCross1 } from 'react-icons/rx';
 
 interface DrawerProps {
   children: React.ReactNode;
@@ -21,6 +22,9 @@ export const Drawer = ({ children, isOpen, onClose }: DrawerProps) => {
           isOpen ? 'translate-x-0' : 'translate-x-full',
         )}
       >
+        <button className="absolute top-0 right-0 p-3 text-xl" onClick={onClose}>
+          <RxCross1 />
+        </button>
         {children}
       </div>
     </Overlay>
