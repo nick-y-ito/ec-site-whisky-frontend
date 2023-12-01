@@ -21,8 +21,8 @@ export const AddToCartButton = ({ itemId }: CartIconProps) => {
   return (
     <button
       className={cn(
-        'h-10 p-4 flex justify-center items-center rounded-xl bg-black text-white',
-        added ? 'border border-black bg-white text-black' : 'hover:opacity-60',
+        'h-10 px-4 flex justify-center items-center rounded-xl',
+        added ? 'border border-black bg-white text-black' : 'bg-black text-white hover:opacity-60',
       )}
       onClick={() => {
         dispatch(increment({ itemId: itemId }));

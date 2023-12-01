@@ -1,3 +1,4 @@
+import { saveCartToCookie } from '@/lib/cookies';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 export interface CartItem {
@@ -19,6 +20,13 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState: initialState,
   reducers: {
+    setCartItems: (state, action: PayloadAction<{ cartItems: CartItem[] }>) => {
+      state.items = action.payload.cartItems;
+      state.totalQuantity = action.payload.cartItems.reduce(
+        (total, item) => total + item.quantity,
+        0,
+      );
+    },
     increment: (state, action: PayloadAction<{ itemId: number }>) => {
       const targetItem = state.items.find((item) => item.id === action.payload.itemId);
       if (targetItem) {
@@ -28,7 +36,7 @@ const cartSlice = createSlice({
         state.items.push({ id: action.payload.itemId, quantity: 1 });
         state.totalQuantity += 1;
       }
-      console.log({ state: JSON.stringify(state) });
+      saveCartToCookie(state.items);
     },
     decrement: (state, action: PayloadAction<{ itemId: number }>) => {
       const targetItem = state.items.find((item) => item.id === action.payload.itemId);
@@ -39,10 +47,10 @@ const cartSlice = createSlice({
         targetItem.quantity -= 1;
       }
       state.totalQuantity -= 1;
-      console.log({ state: JSON.stringify(state) });
+      saveCartToCookie(state.items);
     },
   },
 });
 
-export const { increment, decrement } = cartSlice.actions;
+export const { setCartItems, increment, decrement } = cartSlice.actions;
 export const cartReducer = cartSlice.reducer;
