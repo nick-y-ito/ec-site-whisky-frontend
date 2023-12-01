@@ -1,6 +1,5 @@
 import { useDisableBodyScroll } from '@/lib/hooks/useDisableBodyScroll';
 import { cn } from '@/lib/utils';
-import { useEffect } from 'react';
 
 interface OverlayProps {
   children?: React.ReactNode;
