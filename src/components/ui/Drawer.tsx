@@ -17,8 +17,10 @@ export const Drawer = ({ children, isOpen, onClose }: DrawerProps) => {
         className={cn(
           'w-full sm:max-w-sm h-4/5 sm:h-screen bg-white',
           'fixed z-50 bottom-0 right-0',
-          'transition-transform ease-in-out duration-500',
-          isOpen ? 'translate-x-0' : 'translate-x-full',
+          'transition-translate ease-in-out duration-500',
+          isOpen
+            ? 'max-sm:translate-y-0 sm:translate-x-0'
+            : 'max-sm:translate-y-full sm:translate-x-full',
         )}
       >
         <button className="absolute top-0 right-0 p-3 text-xl" onClick={onClose}>
