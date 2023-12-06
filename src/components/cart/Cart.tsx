@@ -11,7 +11,7 @@ export const Cart = ({}: CartProps) => {
 
   return (
     <>
-      <div className="p-3 overflow-y-auto h-screen pb-[calc(100vh/3)]">
+      <div className="p-3 overflow-y-auto h-screen pb-60">
         <h2 className="text-2xl font-bold mb-3">Shopping Cart</h2>
         <div>
           {cartItems.map((cartItem) => (

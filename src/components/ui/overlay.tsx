@@ -12,13 +12,13 @@ export const Overlay = ({ children, className, isOpen, onClose }: OverlayProps) 
   useDisableBodyScroll(isOpen);
 
   return (
-    <div className={cn(className, isOpen || 'hidden')}>
+    <div className={cn(className)}>
       <div
         className={cn(
-          'fixed inset-0 z-50',
+          'fixed inset-0 z-10',
           'bg-black bg-opacity-50',
-          'transition-all ease-in-out duration-1000',
-          isOpen ? 'opacity-100' : 'opacity-0',
+          'transition-opacity ease-in-out duration-500',
+          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none',
         )}
         onClick={onClose}
       ></div>
