@@ -1,16 +1,23 @@
 'use client';
 
-import { useAppDispatch } from '@/lib/redux/hooks';
-import { reset } from '@/lib/redux/slices/itemListSlice';
+import { useQueryParams } from '@/lib/hooks/useQueryParams';
 
 export const ResetBtn = () => {
-  const dispatch = useAppDispatch();
+  const { params, replaceParams } = useQueryParams();
+
+  const handleClick = () => {
+    params.delete('keyword');
+    params.delete('category');
+    params.delete('sortBy');
+    params.delete('sortOrder');
+    replaceParams();
+  };
 
   return (
     <div className="my-3 flex justify-center">
       <button
         className="w-[100px] border border-black rounded-full hover:text-white hover:bg-black"
-        onClick={() => dispatch(reset())}
+        onClick={() => handleClick()}
       >
         Reset
       </button>

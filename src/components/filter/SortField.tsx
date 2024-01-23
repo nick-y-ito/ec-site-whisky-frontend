@@ -1,7 +1,8 @@
 'use client';
 
-import { useAppDispatch, useAppSelector } from '@/lib/redux/hooks';
-import { sortItems, Sort } from '@/lib/redux/slices/itemListSlice';
+import { useQueryParams } from '@/lib/hooks/useQueryParams';
+import { useAppSelector } from '@/lib/redux/hooks';
+import { Sort } from '@/types/sortFilterTypes';
 
 type SortType = {
   sort: Sort;
@@ -16,8 +17,14 @@ const sortTypes: SortType[] = [
 ];
 
 export const SortField = () => {
-  const dispatch = useAppDispatch();
   const currentSort = useAppSelector((state) => state.itemList.sort);
+  const { params, replaceParams } = useQueryParams();
+
+  const handleClick = (sort: Sort) => {
+    sort.by ? params.set('sortBy', sort.by) : params.delete('sortBy');
+    sort.order ? params.set('sortOrder', sort.order) : params.delete('sortOrder');
+    replaceParams();
+  };
 
   return (
     <>
@@ -33,7 +40,7 @@ export const SortField = () => {
               ) : (
                 <button
                   className="w-full text-left mr-2 hover:opacity-50"
-                  onClick={() => dispatch(sortItems({ by, order }))}
+                  onClick={() => handleClick(s.sort)}
                 >
                   {s.label}
                 </button>

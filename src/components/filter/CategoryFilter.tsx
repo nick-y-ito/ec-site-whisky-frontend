@@ -1,14 +1,22 @@
 'use client';
 
 import { useQueryParams } from '@/lib/hooks/useQueryParams';
-import { useAppDispatch, useAppSelector } from '@/lib/redux/hooks';
-import { filterItems } from '@/lib/redux/slices/itemListSlice';
+import { useAppSelector } from '@/lib/redux/hooks';
 import { cn } from '@/lib/utils';
 import { Category, categories } from '@/types/productType';
 
 export const CategoryFilter = () => {
-  const dispatch = useAppDispatch();
   const category = useAppSelector((state) => state.itemList.filter.category);
+  const { params, replaceParams } = useQueryParams();
+
+  /**
+   * Update the URL query string with the category filter
+   */
+  const handleClick = (category: Category) => {
+    params.set('category', category);
+    replaceParams();
+  };
+
   return (
     <>
       <p className="mt-3 text-xl font-bold">Categories</p>
@@ -17,9 +25,9 @@ export const CategoryFilter = () => {
           <li key={i}>
             <button
               className={cn('w-full text-left hover:opacity-50', c === category && 'text-red-500')}
-              onClick={() => dispatch(filterItems({ category: c }))}
+              onClick={() => handleClick(c)}
             >
-              {c}
+              <span className="capitalize">{c}</span>
             </button>
           </li>
         ))}
