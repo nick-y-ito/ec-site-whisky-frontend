@@ -1,9 +1,10 @@
 'use client';
 
-import { categories } from '@/data/whisky';
+import { useQueryParams } from '@/lib/hooks/useQueryParams';
 import { useAppDispatch, useAppSelector } from '@/lib/redux/hooks';
 import { filterItems } from '@/lib/redux/slices/itemListSlice';
 import { cn } from '@/lib/utils';
+import { Category, categories } from '@/types/productType';
 
 export const CategoryFilter = () => {
   const dispatch = useAppDispatch();

@@ -1,19 +1,8 @@
-import { Category, Whisky } from '@/data/whisky';
+import { Whisky } from '@/data/whisky';
 import { filterItemsList, sortItemsList } from '@/lib/filter';
+import { Category } from '@/types/productType';
+import { Filter, Sort, SortBy, SortOrder } from '@/types/sortFilterTypes';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-
-type SortBy = 'name' | 'price';
-type SortOrder = 'asc' | 'desc';
-
-export type Sort = {
-  by: SortBy;
-  order: SortOrder;
-};
-
-export type Filter = {
-  keyword: string | undefined;
-  category: Category | undefined;
-};
 
 interface ItemListState {
   items: Whisky[];
