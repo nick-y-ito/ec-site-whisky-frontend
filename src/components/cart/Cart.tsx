@@ -2,12 +2,23 @@
 
 import { CartFooter } from '@/components/cart/CartFooter';
 import { CartItemRow } from '@/components/cart/CartItemRow';
-import { useAppSelector } from '@/lib/redux/hooks';
+import { getCartItems } from '@/lib/apiClient/cartApiClient';
+import { setCartItems } from '@/lib/redux/slices/cartSlice';
+import { useAppDispatch, useAppSelector } from '@/lib/redux/hooks';
+import { useEffect, useState } from 'react';
 
 interface CartProps {}
 
 export const Cart = ({}: CartProps) => {
   const cartItems = useAppSelector((state) => state.cart.items);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    (async () => {
+      const initialCartItems = await getCartItems();
+      dispatch(setCartItems({ cartItems: initialCartItems }));
+    })();
+  }, [dispatch]);
 
   return (
     <>
