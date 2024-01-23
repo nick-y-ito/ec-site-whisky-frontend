@@ -1,10 +1,6 @@
+import { CartItem } from '@/types/definition';
 import { saveCartToCookie } from '@/lib/cookies';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-
-export interface CartItem {
-  id: number;
-  quantity: number;
-}
 
 interface CartState {
   items: CartItem[];

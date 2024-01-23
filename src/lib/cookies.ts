@@ -1,4 +1,4 @@
-import { CartItem } from '@/lib/redux/slices/cartSlice';
+import { CartItem } from '@/types/definition';
 import Cookies from 'js-cookie';
 
 export const getCartFromCookie = (): CartItem[] => {

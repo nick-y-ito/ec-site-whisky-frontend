@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { whiskies, Whisky } from '@/data/whisky';
-import { CartItem } from '@/lib/redux/slices/cartSlice';
+import { CartItem } from '@/types/definition';
 import { QuantityButtons } from '@/components/cart/QuantityButtons';
 
 interface CartItemRowProps {
