@@ -1,5 +1,5 @@
 /**
- * Cart item object
+ * Interface for CartItem object
  */
 export interface CartItem {
   id: number;
