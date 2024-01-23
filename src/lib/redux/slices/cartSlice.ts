@@ -1,5 +1,4 @@
 import { CartItem } from '@/types/definition';
-import { saveCartToCookie } from '@/lib/cookies';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface CartState {
@@ -32,7 +31,6 @@ const cartSlice = createSlice({
         state.items.push({ id: action.payload.itemId, quantity: 1 });
         state.totalQuantity += 1;
       }
-      saveCartToCookie(state.items);
     },
     decrement: (state, action: PayloadAction<{ itemId: number }>) => {
       const targetItem = state.items.find((item) => item.id === action.payload.itemId);
@@ -43,7 +41,6 @@ const cartSlice = createSlice({
         targetItem.quantity -= 1;
       }
       state.totalQuantity -= 1;
-      saveCartToCookie(state.items);
     },
   },
 });
