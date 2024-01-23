@@ -38,8 +38,9 @@ const filterSlice = createSlice({
       const filtered = filterItemsList(state.items, state.filter);
       state.filteredItems = sortItemsList(filtered, state.sort);
     },
-    sortItems(state, action: PayloadAction<{ by: SortBy; order: SortOrder }>) {
-      state.sort = action.payload;
+    sortItems(state, action: PayloadAction<{ by?: SortBy; order?: SortOrder }>) {
+      state.sort.by = action.payload.by ?? state.sort.by;
+      state.sort.order = action.payload.order ?? state.sort.order;
       state.filteredItems = sortItemsList(state.filteredItems, state.sort);
     },
     reset: (state) => {
