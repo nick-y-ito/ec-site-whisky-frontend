@@ -1,4 +1,4 @@
-import { Category } from "@/types/definition";
+import { Category } from "@/types/productType";
 
 export type Whisky = {
   id: number;
