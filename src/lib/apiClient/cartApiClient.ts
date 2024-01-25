@@ -2,7 +2,7 @@ import { CartItem } from '@/types/definition';
 
 /**
  * Get cart items from the server
- * @returns {Promise<CartItem[]>}
+ * @returns Cart items from the server
  */
 export async function getCartItems(): Promise<CartItem[]> {
   const res = await fetch('/api/cart', {
@@ -14,7 +14,7 @@ export async function getCartItems(): Promise<CartItem[]> {
 
 /**
  * Add an item to the cart
- * @param {number} itemId
+ * @param itemId
  */
 export async function addCartItem(itemId: number) {
   await fetch('/api/cart', {
@@ -29,7 +29,7 @@ export async function addCartItem(itemId: number) {
 /**
  * Increment the quantity of the item in the cart
  * This will add the item to the cart if it doesn't exist
- * @param {number} itemId
+ * @param itemId
  */
 export async function incrementCartItem(itemId: number) {
   await fetch(`/api/cart/${itemId}`, {
@@ -44,7 +44,7 @@ export async function incrementCartItem(itemId: number) {
 /**
  * Decrement the quantity of the item in the cart
  * This will remove the item from the cart if the quantity is 1
- * @param {number} itemId
+ * @param itemId
  */
 export async function decrementCartItem(itemId: number) {
   await fetch(`/api/cart/${itemId}`, {

@@ -3,9 +3,9 @@ import { NextResponse } from 'next/server';
 
 /**
  * Get cart items
- * @returns {Promise<{ cartItems: CartItem[] }>}
+ * @returns NextResponse with cart items
  */
-export async function GET() {
+export async function GET(): Promise<NextResponse> {
   const cartItems = Cart.items;
   return NextResponse.json({ cartItems });
 }

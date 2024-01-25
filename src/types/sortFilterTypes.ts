@@ -19,8 +19,8 @@ export const isSortOrder = (str: string | null): str is SortOrder =>
 
 /**
  * Interface for Sort object
- * @param {SortBy} by - Sort by
- * @param {SortOrder} order - Sort order
+ * @property by - Sort by
+ * @property order - Sort order
  */
 export interface Sort {
   by?: SortBy;
@@ -31,8 +31,8 @@ export type Keyword = string;
 
 /**
  * Interface for Filter object
- * @param {string} keyword - Search keyword
- * @param {Category} category - Category
+ * @property keyword - Search keyword
+ * @property category - Category
  */
 export interface Filter {
   keyword?: Keyword;

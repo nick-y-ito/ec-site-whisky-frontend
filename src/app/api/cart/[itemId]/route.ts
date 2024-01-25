@@ -3,11 +3,14 @@ import { NextRequest, NextResponse } from 'next/server';
 
 /**
  * Increment or decrement the quantity of the item in the cart.
- * @param {NextRequest} req
- * @param {{ params: { itemId: string } }} { params }
- * @returns {Promise<NextResponse>}
+ * @param req
+ * @param params.itemId - Item ID from the URL query parameter
+ * @returns NextResponse with status code
  */
-export async function PATCH(req: NextRequest, { params }: { params: { itemId: string } }) {
+export async function PATCH(
+  req: NextRequest,
+  { params }: { params: { itemId: string } },
+): Promise<NextResponse> {
   try {
     const itemId = Number(params.itemId);
     const body = await req.json();

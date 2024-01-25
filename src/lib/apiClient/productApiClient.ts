@@ -15,7 +15,7 @@ interface IGetProductList {
 
 /**
  * Get product list
- * @returns product list
+ * @returns Product list from the server
  */
 export async function getProductList({
   keyword,
