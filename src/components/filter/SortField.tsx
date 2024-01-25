@@ -3,6 +3,7 @@
 import { useQueryParams } from '@/lib/hooks/useQueryParams';
 import { cn } from '@/lib/utils';
 import { Sort } from '@/types/sortFilterTypes';
+import { isSortOrder, isSortBy } from '@/types/sortFilterTypes';
 
 type SortType = {
   sort: Sort;
@@ -18,9 +19,9 @@ const sortTypes: SortType[] = [
 
 export const SortField = () => {
   const { params, replaceParams } = useQueryParams();
-  const currentSort = {
-    by: params.get('sortBy'),
-    order: params.get('sortOrder'),
+  const sortParams = {
+    sortBy: params.get('sortBy'),
+    sortOrder: params.get('sortOrder'),
   };
 
   const handleClick = (sort: Sort) => {
@@ -35,7 +36,16 @@ export const SortField = () => {
       <ul>
         {sortTypes.map((s, i) => {
           const { by, order } = s.sort;
-          const selected = by === currentSort.by && order == currentSort.order;
+          const noSearchParams = !isSortBy(sortParams.sortBy) && !isSortOrder(sortParams.sortOrder);
+          const bySelected = sortParams.sortBy === by && !isSortOrder(sortParams.sortOrder);
+          const orderSelected = sortParams.sortOrder === order && !isSortBy(sortParams.sortBy);
+          const selected = noSearchParams
+            ? i === 0
+            : bySelected
+            ? by === sortParams.sortBy && order === 'asc'
+            : orderSelected
+            ? order === sortParams.sortOrder && by === 'name'
+            : by === sortParams.sortBy && order === sortParams.sortOrder;
           return (
             <li key={i}>
               <button
@@ -48,7 +58,6 @@ export const SortField = () => {
               >
                 {s.label}
               </button>
-              {/* )} */}
             </li>
           );
         })}
