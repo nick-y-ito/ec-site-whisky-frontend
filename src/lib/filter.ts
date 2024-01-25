@@ -1,20 +1,20 @@
 import { Product } from '@/data/whisky';
 import { Filter, Sort } from '@/types/sortFilterTypes';
 
-export const filterItemsList = (items: Product[], filter: Filter): Product[] => {
+export const filterProductList = (products: Product[], filter: Filter): Product[] => {
   const keyword = filter.keyword ? filter.keyword.toLowerCase() : '';
   const category = filter.category;
-  return items.filter((item) => {
+  return products.filter((p) => {
     return (
-      (keyword ? item.name.toLowerCase().includes(keyword) : true) &&
-      (category ? item.category === category : true)
+      (keyword ? p.name.toLowerCase().includes(keyword) : true) &&
+      (category ? p.category === category : true)
     );
   });
 };
 
-export const sortItemsList = (items: Product[], sort: Sort): Product[] => {
+export const sortProductList = (products: Product[], sort: Sort): Product[] => {
   const { by, order } = sort;
-  items.sort((a, b) => {
+  products.sort((a, b) => {
     if (by === 'name') {
       return order === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
     } else if (by === 'price') {
@@ -23,5 +23,5 @@ export const sortItemsList = (items: Product[], sort: Sort): Product[] => {
       return 0;
     }
   });
-  return items;
+  return products;
 };
