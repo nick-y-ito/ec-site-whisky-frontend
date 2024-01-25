@@ -1,7 +1,7 @@
 'use client';
 
 import { useQueryParams } from '@/lib/hooks/useQueryParams';
-import { useAppSelector } from '@/lib/redux/hooks';
+import { cn } from '@/lib/utils';
 import { Sort } from '@/types/sortFilterTypes';
 
 type SortType = {
@@ -17,8 +17,11 @@ const sortTypes: SortType[] = [
 ];
 
 export const SortField = () => {
-  const currentSort = useAppSelector((state) => state.itemList.sort);
   const { params, replaceParams } = useQueryParams();
+  const currentSort = {
+    by: params.get('sortBy'),
+    order: params.get('sortOrder'),
+  };
 
   const handleClick = (sort: Sort) => {
     sort.by ? params.set('sortBy', sort.by) : params.delete('sortBy');
@@ -35,16 +38,17 @@ export const SortField = () => {
           const selected = by === currentSort.by && order == currentSort.order;
           return (
             <li key={i}>
-              {selected ? (
-                <div className="w-full text-left mr-2 text-red-500 font-bold">{s.label}</div>
-              ) : (
-                <button
-                  className="w-full text-left mr-2 hover:opacity-50"
-                  onClick={() => handleClick(s.sort)}
-                >
-                  {s.label}
-                </button>
-              )}
+              <button
+                className={cn(
+                  'w-full text-left',
+                  selected ? 'text-red-500 font-bold' : 'hover:opacity-50',
+                )}
+                onClick={() => handleClick(s.sort)}
+                disabled={selected}
+              >
+                {s.label}
+              </button>
+              {/* )} */}
             </li>
           );
         })}

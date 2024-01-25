@@ -1,17 +1,19 @@
 'use client';
 
 import { useQueryParams } from '@/lib/hooks/useQueryParams';
-import { useAppSelector } from '@/lib/redux/hooks';
+import { useState } from 'react';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 
 export const KeywordFilter = () => {
-  const keyword = useAppSelector((state) => state.itemList.filter.keyword);
   const { params, replaceParams } = useQueryParams();
+  const [inputKeyword, setInputKeyword] = useState('');
+  const paramKeyword = params.get('keyword') || '';
 
   /**
    * Update the URL query string with the keyword filter
    */
   const handleChange = (query: string) => {
+    setInputKeyword(query);
     if (query) {
       params.set('keyword', query);
     } else {
@@ -25,7 +27,7 @@ export const KeywordFilter = () => {
       <input
         className="h-full w-full"
         type="text"
-        value={keyword}
+        value={inputKeyword || paramKeyword}
         onChange={(e) => handleChange(e.target.value)}
       />
       <HiOutlineMagnifyingGlass className="absolute right-2" />
