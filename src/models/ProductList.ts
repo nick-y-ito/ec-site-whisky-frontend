@@ -1,4 +1,4 @@
-import { Product, products } from '@/data/whisky';
+import { Product, products } from '@/data/products';
 import { Category } from '@/types/productType';
 import { Keyword, SortBy, SortOrder } from '@/types/sortFilterTypes';
 
@@ -21,10 +21,10 @@ export class ProductList {
   static filterItems({ keyword, category }: { keyword?: Keyword; category?: Category }) {
     const _keyword = keyword ? keyword.toLowerCase() : '';
     const _category = category;
-    ProductList._filteredProducts = ProductList._products.filter((item) => {
+    ProductList._filteredProducts = ProductList._products.filter((p) => {
       return (
-        (_keyword ? item.name.toLowerCase().includes(_keyword) : true) &&
-        (_category ? item.category === _category : true)
+        (_keyword ? p.name.toLowerCase().includes(_keyword) : true) &&
+        (_category ? p.category === _category : true)
       );
     });
   }

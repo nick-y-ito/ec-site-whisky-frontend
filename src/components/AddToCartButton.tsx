@@ -6,10 +6,10 @@ import { FaCheck } from 'react-icons/fa';
 import { getCartItems, incrementCartItem } from '@/lib/apiClient/cartApiClient';
 
 interface CartIconProps {
-  itemId: number;
+  productId: number;
 }
 
-export const AddToCartButton = ({ itemId }: CartIconProps) => {
+export const AddToCartButton = ({ productId }: CartIconProps) => {
   const [added, setAdded] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -22,8 +22,8 @@ export const AddToCartButton = ({ itemId }: CartIconProps) => {
   const handleClick = async () => {
     setAdded(true);
     try {
-      dispatch(increment({ itemId }));
-      await incrementCartItem(itemId);
+      dispatch(increment({ productId }));
+      await incrementCartItem(productId);
     } catch (error) {
       alert('Failed to update cart.');
       const cartItems = await getCartItems();

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { products, Product } from '@/data/whisky';
+import { products, Product } from '@/data/products';
 import { CartItem } from '@/types/definition';
 import { QuantityButtons } from '@/components/cart/QuantityButtons';
 
@@ -17,7 +17,7 @@ export const CartItemRow = ({ cartItem }: CartItemRowProps) => {
           <div className="w-full h-full relative">
             <Image
               className="object-contain"
-              src={`/images/whisky${item.imgPath}`}
+              src={`/images/products${item.imgPath}`}
               alt={item.name}
               fill
               sizes="100px"
@@ -27,7 +27,7 @@ export const CartItemRow = ({ cartItem }: CartItemRowProps) => {
         <div className="w-4/5 pl-3 flex flex-col">
           <div className="h-12 mb-auto text-sm">{item.name}</div>
           <div className="flex items-center justify-between">
-            <QuantityButtons itemId={item.id} quantity={cartItem.quantity} />
+            <QuantityButtons productId={item.id} quantity={cartItem.quantity} />
             <div className="font-bold">$ {item.priceInCent / 100}</div>
           </div>
         </div>

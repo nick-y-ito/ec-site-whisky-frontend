@@ -14,25 +14,25 @@ export async function getCartItems(): Promise<CartItem[]> {
 
 /**
  * Add an item to the cart
- * @param itemId
+ * @param productId
  */
-export async function addCartItem(itemId: number) {
+export async function addCartItem(productId: number) {
   await fetch('/api/cart', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ itemId }),
+    body: JSON.stringify({ productId }),
   });
 }
 
 /**
  * Increment the quantity of the item in the cart
  * This will add the item to the cart if it doesn't exist
- * @param itemId
+ * @param productId
  */
-export async function incrementCartItem(itemId: number) {
-  await fetch(`/api/cart/${itemId}`, {
+export async function incrementCartItem(productId: number) {
+  await fetch(`/api/cart/${productId}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -44,10 +44,10 @@ export async function incrementCartItem(itemId: number) {
 /**
  * Decrement the quantity of the item in the cart
  * This will remove the item from the cart if the quantity is 1
- * @param itemId
+ * @param productId
  */
-export async function decrementCartItem(itemId: number) {
-  await fetch(`/api/cart/${itemId}`, {
+export async function decrementCartItem(productId: number) {
+  await fetch(`/api/cart/${productId}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',

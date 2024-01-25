@@ -1,4 +1,4 @@
-import { Product } from '@/data/whisky';
+import { Product } from '@/data/products';
 import { Category, isCategory } from '@/types/productType';
 import {
   Keyword,
