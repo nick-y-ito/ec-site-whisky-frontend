@@ -1,25 +1,26 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ItemCard } from '@/components/ItemCard';
-import { useAppDispatch, useAppSelector } from '@/lib/redux/hooks';
-import { setItems } from '@/lib/redux/slices/itemListSlice';
-import { whiskies } from '@/data/whisky';
+import { getProductList } from '@/lib/apiClient/productApiClient';
+import { useProductSearchParams } from '@/lib/hooks/useProductSearchParams';
+import { Product } from '@/data/whisky';
 
 export const ItemList = () => {
-  const dispatch = useAppDispatch();
-  const items = useAppSelector((state) => state.itemList.filteredItems);
+  const [products, setProducts] = useState<Product[]>([]);
+  const { keyword, category, sortBy, sortOrder } = useProductSearchParams();
 
+  // Fetch the product list when the predefined search parameters change
   useEffect(() => {
     (async () => {
-      const data = whiskies;
-      dispatch(setItems(data));
+      const productList = await getProductList({ keyword, category, sortBy, sortOrder });
+      setProducts(productList);
     })();
-  }, [dispatch]);
+  }, [keyword, category, sortBy, sortOrder]);
 
   return (
     <ul className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5">
-      {items.map((item, i) => (
+      {products.map((item, i) => (
         <ItemCard key={i} whisky={item} />
       ))}
     </ul>

@@ -1,7 +1,9 @@
 'use client';
 
-import { useAppDispatch, useAppSelector } from '@/lib/redux/hooks';
-import { sortItems, Sort } from '@/lib/redux/slices/itemListSlice';
+import { useQueryParams } from '@/lib/hooks/useQueryParams';
+import { cn } from '@/lib/utils';
+import { Sort } from '@/types/sortFilterTypes';
+import { isSortOrder, isSortBy } from '@/types/sortFilterTypes';
 
 type SortType = {
   sort: Sort;
@@ -16,8 +18,17 @@ const sortTypes: SortType[] = [
 ];
 
 export const SortField = () => {
-  const dispatch = useAppDispatch();
-  const currentSort = useAppSelector((state) => state.itemList.sort);
+  const { params, replaceParams } = useQueryParams();
+  const sortParams = {
+    sortBy: params.get('sortBy'),
+    sortOrder: params.get('sortOrder'),
+  };
+
+  const handleClick = (sort: Sort) => {
+    sort.by ? params.set('sortBy', sort.by) : params.delete('sortBy');
+    sort.order ? params.set('sortOrder', sort.order) : params.delete('sortOrder');
+    replaceParams();
+  };
 
   return (
     <>
@@ -25,19 +36,28 @@ export const SortField = () => {
       <ul>
         {sortTypes.map((s, i) => {
           const { by, order } = s.sort;
-          const selected = by === currentSort.by && order == currentSort.order;
+          const noSearchParams = !isSortBy(sortParams.sortBy) && !isSortOrder(sortParams.sortOrder);
+          const bySelected = sortParams.sortBy === by && !isSortOrder(sortParams.sortOrder);
+          const orderSelected = sortParams.sortOrder === order && !isSortBy(sortParams.sortBy);
+          const selected = noSearchParams
+            ? i === 0
+            : bySelected
+            ? by === sortParams.sortBy && order === 'asc'
+            : orderSelected
+            ? order === sortParams.sortOrder && by === 'name'
+            : by === sortParams.sortBy && order === sortParams.sortOrder;
           return (
             <li key={i}>
-              {selected ? (
-                <div className="w-full text-left mr-2 text-red-500 font-bold">{s.label}</div>
-              ) : (
-                <button
-                  className="w-full text-left mr-2 hover:opacity-50"
-                  onClick={() => dispatch(sortItems({ by, order }))}
-                >
-                  {s.label}
-                </button>
-              )}
+              <button
+                className={cn(
+                  'w-full text-left',
+                  selected ? 'text-red-500 font-bold' : 'hover:opacity-50',
+                )}
+                onClick={() => handleClick(s.sort)}
+                disabled={selected}
+              >
+                {s.label}
+              </button>
             </li>
           );
         })}

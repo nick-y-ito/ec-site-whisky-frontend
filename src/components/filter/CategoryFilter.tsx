@@ -1,27 +1,42 @@
 'use client';
 
-import { categories } from '@/data/whisky';
-import { useAppDispatch, useAppSelector } from '@/lib/redux/hooks';
-import { filterItems } from '@/lib/redux/slices/itemListSlice';
+import { useQueryParams } from '@/lib/hooks/useQueryParams';
 import { cn } from '@/lib/utils';
+import { Category, categories } from '@/types/productType';
 
 export const CategoryFilter = () => {
-  const dispatch = useAppDispatch();
-  const category = useAppSelector((state) => state.itemList.filter.category);
+  const { params, replaceParams } = useQueryParams();
+  const selectedCategory = params.get('category');
+
+  /**
+   * Update the URL query string with the category filter
+   */
+  const handleClick = (category: Category) => {
+    params.set('category', category);
+    replaceParams();
+  };
+
   return (
     <>
       <p className="mt-3 text-xl font-bold">Categories</p>
       <ul>
-        {categories.map((c, i) => (
-          <li key={i}>
-            <button
-              className={cn('w-full text-left hover:opacity-50', c === category && 'text-red-500')}
-              onClick={() => dispatch(filterItems({ category: c }))}
-            >
-              {c}
-            </button>
-          </li>
-        ))}
+        {categories.map((c, i) => {
+          const selected = c === selectedCategory;
+          return (
+            <li key={i}>
+              <button
+                className={cn(
+                  'w-full text-left',
+                  selected ? 'text-red-500 font-bold' : 'hover:opacity-50',
+                )}
+                onClick={() => handleClick(c)}
+                disabled={selected}
+              >
+                <span className="capitalize">{c}</span>
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </>
   );
