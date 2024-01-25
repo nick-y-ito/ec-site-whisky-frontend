@@ -12,12 +12,10 @@ export const ItemList = () => {
 
   // Fetch the product list when the predefined search parameters change
   useEffect(() => {
-    if (keyword || category || sortBy || sortOrder) {
-      (async () => {
-        const productList = await getProductList({ keyword, category, sortBy, sortOrder });
-        setProducts(productList);
-      })();
-    }
+    (async () => {
+      const productList = await getProductList({ keyword, category, sortBy, sortOrder });
+      setProducts(productList);
+    })();
   }, [keyword, category, sortBy, sortOrder]);
 
   return (
