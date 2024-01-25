@@ -5,7 +5,9 @@ import { CartItem } from '@/types/definition';
  * @returns {Promise<CartItem[]>}
  */
 export async function getCartItems(): Promise<CartItem[]> {
-  const res = await fetch('/api/cart');
+  const res = await fetch('/api/cart', {
+    method: 'GET',
+  });
   const data = await res.json();
   return data.cartItems;
 }
