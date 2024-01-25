@@ -1,15 +1,15 @@
-import { Category } from "@/types/productType";
+import { Category } from '@/types/productType';
 
-export type Whisky = {
+export type Product = {
   id: number;
   name: string;
-  priceInCent: number
+  priceInCent: number;
   category: Category;
   rating: number;
   imgPath: `/${string}.png`;
 };
 
-export const whiskies: Whisky[] = [
+export const products: Product[] = [
   {
     id: 1,
     name: 'ABERFELDY - 12 YEAR OLD',

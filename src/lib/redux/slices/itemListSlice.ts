@@ -1,12 +1,12 @@
-import { Whisky } from '@/data/whisky';
+import { Product } from '@/data/whisky';
 import { filterItemsList, sortItemsList } from '@/lib/filter';
 import { Category } from '@/types/productType';
 import { Filter, Sort, SortBy, SortOrder } from '@/types/sortFilterTypes';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface ItemListState {
-  items: Whisky[];
-  filteredItems: Whisky[];
+  items: Product[];
+  filteredItems: Product[];
   filter: Filter;
   sort: Sort;
 }
@@ -28,7 +28,7 @@ const filterSlice = createSlice({
   name: 'filter',
   initialState: initialState,
   reducers: {
-    setItems(state, action: PayloadAction<Whisky[]>) {
+    setItems(state, action: PayloadAction<Product[]>) {
       state.items = [...action.payload].sort((a, b) => a.name.localeCompare(b.name));
       state.filteredItems = [...state.items];
     },

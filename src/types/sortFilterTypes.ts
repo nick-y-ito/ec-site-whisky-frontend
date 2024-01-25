@@ -1,4 +1,4 @@
-import { Category } from "@/types/productType";
+import { Category } from '@/types/productType';
 
 /**
  * Types for Sort By
@@ -23,9 +23,11 @@ export const isSortOrder = (str: string | null): str is SortOrder =>
  * @param {SortOrder} order - Sort order
  */
 export interface Sort {
-  by: SortBy;
-  order: SortOrder;
+  by?: SortBy;
+  order?: SortOrder;
 }
+
+export type Keyword = string;
 
 /**
  * Interface for Filter object
@@ -33,6 +35,6 @@ export interface Sort {
  * @param {Category} category - Category
  */
 export interface Filter {
-  keyword?: string
+  keyword?: Keyword;
   category?: Category;
 }

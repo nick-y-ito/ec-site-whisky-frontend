@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
-import { Whisky } from '@/data/whisky';
+import { Product } from '@/data/whisky';
 import { AddToCartButton } from '@/components/AddToCartButton';
 
 interface ItemCardProps {
-  whisky: Whisky;
+  whisky: Product;
 }
 
 export const ItemCard: React.FC<ItemCardProps> = ({ whisky }) => {

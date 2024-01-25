@@ -1,7 +1,7 @@
-import { Whisky } from '@/data/whisky';
+import { Product } from '@/data/whisky';
 import { Filter, Sort } from '@/types/sortFilterTypes';
 
-export const filterItemsList = (items: Whisky[], filter: Filter): Whisky[] => {
+export const filterItemsList = (items: Product[], filter: Filter): Product[] => {
   const keyword = filter.keyword ? filter.keyword.toLowerCase() : '';
   const category = filter.category;
   return items.filter((item) => {
@@ -12,7 +12,7 @@ export const filterItemsList = (items: Whisky[], filter: Filter): Whisky[] => {
   });
 };
 
-export const sortItemsList = (items: Whisky[], sort: Sort): Whisky[] => {
+export const sortItemsList = (items: Product[], sort: Sort): Product[] => {
   const { by, order } = sort;
   items.sort((a, b) => {
     if (by === 'name') {

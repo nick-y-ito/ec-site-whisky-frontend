@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { whiskies, Whisky } from '@/data/whisky';
+import { products, Product } from '@/data/whisky';
 import { CartItem } from '@/types/definition';
 import { QuantityButtons } from '@/components/cart/QuantityButtons';
 
@@ -8,7 +8,7 @@ interface CartItemRowProps {
 }
 
 export const CartItemRow = ({ cartItem }: CartItemRowProps) => {
-  const item: Whisky | undefined = whiskies.find((w) => w.id === cartItem.id);
+  const item: Product | undefined = products.find((w) => w.id === cartItem.id);
 
   return (
     item && (
