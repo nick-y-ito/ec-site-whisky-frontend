@@ -1,4 +1,4 @@
-import { Product, products } from '@/data/whisky';
+import { Product, products } from '@/data/products';
 import { Category } from '@/types/productType';
 import { Keyword, SortBy, SortOrder } from '@/types/sortFilterTypes';
 

@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import { useAppSelector } from '@/lib/redux/hooks';
-import { Product } from '@/data/whisky';
+import { Product } from '@/data/products';
 import { useEffect, useState } from 'react';
 import { getProductList } from '@/lib/apiClient/productApiClient';
 

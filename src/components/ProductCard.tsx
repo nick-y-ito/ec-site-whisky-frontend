@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Product } from '@/data/whisky';
+import { Product } from '@/data/products';
 import { AddToCartButton } from '@/components/AddToCartButton';
 
 interface ItemCardProps {

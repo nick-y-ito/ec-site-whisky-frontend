@@ -1,4 +1,4 @@
-import { Product } from '@/data/whisky';
+import { Product } from '@/data/products';
 import { Filter, Sort } from '@/types/sortFilterTypes';
 
 export const filterProductList = (products: Product[], filter: Filter): Product[] => {

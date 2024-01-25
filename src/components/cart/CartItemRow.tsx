@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { products, Product } from '@/data/whisky';
+import { products, Product } from '@/data/products';
 import { CartItem } from '@/types/definition';
 import { QuantityButtons } from '@/components/cart/QuantityButtons';
 
