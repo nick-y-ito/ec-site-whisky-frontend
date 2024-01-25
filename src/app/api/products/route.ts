@@ -20,8 +20,8 @@ export async function GET(req: NextRequest) {
   const sortBy = isSortBy(sortByParam) ? (sortByParam as SortBy) : undefined;
   const sortOrder = isSortOrder(sortOrderParam) ? (sortOrderParam as SortOrder) : undefined;
 
-  ProductList.filterItems({ keyword, category });
-  ProductList.sortItems({ sortBy, sortOrder });
+  ProductList.filterProducts({ keyword, category });
+  ProductList.sortProducts({ sortBy, sortOrder });
 
   const products = await new Promise((resolve) => {
     // setTimeout(() => {

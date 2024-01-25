@@ -10,7 +10,7 @@ import { BiSortUp } from 'react-icons/bi';
 import { cn } from '@/lib/utils';
 import { useProductSearchParams } from '@/lib/hooks/useProductSearchParams';
 
-export const ItemFilterMobile = () => {
+export const ProductFilterMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { keyword, category, sortBy, sortOrder } = useProductSearchParams();
 
