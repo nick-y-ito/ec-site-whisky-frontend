@@ -14,7 +14,7 @@ export const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
         <div className="w-full h-full relative">
           <Image
             className="object-contain"
-            src={`/images/whisky${product.imgPath}`}
+            src={`/images/products${product.imgPath}`}
             alt={product.name}
             fill
             sizes="300px"

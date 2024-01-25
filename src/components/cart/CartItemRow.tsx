@@ -17,7 +17,7 @@ export const CartItemRow = ({ cartItem }: CartItemRowProps) => {
           <div className="w-full h-full relative">
             <Image
               className="object-contain"
-              src={`/images/whisky${item.imgPath}`}
+              src={`/images/products${item.imgPath}`}
               alt={item.name}
               fill
               sizes="100px"
