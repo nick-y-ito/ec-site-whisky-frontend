@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { ItemCard } from '@/components/ItemCard';
+import { ItemCard } from '@/components/ProductCard';
 import { getProductList } from '@/lib/apiClient/productApiClient';
 import { useProductSearchParams } from '@/lib/hooks/useProductSearchParams';
 import { Product } from '@/data/whisky';
