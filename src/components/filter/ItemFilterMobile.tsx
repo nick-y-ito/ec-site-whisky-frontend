@@ -8,9 +8,11 @@ import { ResetBtn } from '@/components/filter/ResetBtn';
 import { FiFilter } from 'react-icons/fi';
 import { BiSortUp } from 'react-icons/bi';
 import { cn } from '@/lib/utils';
+import { useProductSearchParams } from '@/lib/hooks/useProductSearchParams';
 
 export const ItemFilterMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { keyword, category, sortBy, sortOrder } = useProductSearchParams();
 
   return (
     <>
@@ -19,8 +21,7 @@ export const ItemFilterMobile = () => {
           <button
             className={cn(
               'flex justify-center items-center gap-2 border border-black rounded-sm hover:bg-black hover:text-white',
-              // (isOpen || keyword || category || !(sort.by === 'name' && sort.order === 'asc')) &&
-                'bg-black text-white',
+              (isOpen || keyword || category || sortBy || sortOrder) && 'bg-black text-white',
             )}
             onClick={() => {
               setIsOpen(!isOpen);
