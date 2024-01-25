@@ -1,9 +1,10 @@
 import { cn } from '@/lib/utils';
 import { useAppSelector } from '@/lib/redux/hooks';
+import { Product } from '@/data/whisky';
 
 export const CartFooter = () => {
   const cartItems = useAppSelector((state) => state.cart.items);
-  const itemList = useAppSelector((state) => state.itemList.items);
+  const itemList: Product[] = []
   const totalQuantity = useAppSelector((state) => state.cart.totalQuantity);
   const totalPriceInCent = cartItems.reduce((acc, item) => {
     const price = itemList.find((i) => i.id === item.id)?.priceInCent;
