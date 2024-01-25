@@ -1,7 +1,7 @@
 import { HeroSection } from '@/components/base/HeroSection';
 import { LeftSideBar } from '@/components/base/LeftSideBar';
-import { ItemFilterMobile } from '@/components/filter/ProductFilterMobile';
-import { ItemList } from '@/components/base/ProductList';
+import { ProductFilterMobile } from '@/components/filter/ProductFilterMobile';
+import { ProductList } from '@/components/base/ProductList';
 
 const Home = () => {
   return (
@@ -10,8 +10,8 @@ const Home = () => {
       <div className="min-h-[120vh] p-10 flex gap-10 justify-center relative bg-amber-950 bg-opacity-10">
         <LeftSideBar />
         <div className="w-full max-w-screen-2xl">
-          <ItemFilterMobile />
-          <ItemList />
+          <ProductFilterMobile />
+          <ProductList />
         </div>
       </div>
     </main>

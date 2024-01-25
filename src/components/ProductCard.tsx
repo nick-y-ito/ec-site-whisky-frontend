@@ -3,11 +3,11 @@ import Image from 'next/image';
 import { Product } from '@/data/products';
 import { AddToCartButton } from '@/components/AddToCartButton';
 
-interface ItemCardProps {
+interface ProductCardProps {
   product: Product;
 }
 
-export const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <li className="shadow-xl rounded-lg w-full h-full">
       <div className="py-2 h-[200px] bg-radial-gradient rounded-t-lg">

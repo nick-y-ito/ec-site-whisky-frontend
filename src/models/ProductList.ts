@@ -18,7 +18,7 @@ export class ProductList {
     ProductList._filteredProducts = products;
   }
 
-  static filterItems({ keyword, category }: { keyword?: Keyword; category?: Category }) {
+  static filterProducts({ keyword, category }: { keyword?: Keyword; category?: Category }) {
     const _keyword = keyword ? keyword.toLowerCase() : '';
     const _category = category;
     ProductList._filteredProducts = ProductList._products.filter((p) => {
@@ -29,7 +29,7 @@ export class ProductList {
     });
   }
 
-  static sortItems({ sortBy, sortOrder }: { sortBy?: SortBy; sortOrder?: SortOrder }) {
+  static sortProducts({ sortBy, sortOrder }: { sortBy?: SortBy; sortOrder?: SortOrder }) {
     const by: SortBy = sortBy ?? 'name';
     const order: SortOrder = sortOrder ?? 'asc';
     ProductList._filteredProducts.sort((a, b) => {
