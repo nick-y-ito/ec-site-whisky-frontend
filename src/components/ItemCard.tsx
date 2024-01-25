@@ -28,7 +28,7 @@ export const ItemCard: React.FC<ItemCardProps> = ({ whisky }) => {
         <div className="h-10 text-xl font-bold flex justify-center items-center">
           ${whisky.priceInCent / 100}
         </div>
-        <AddToCartButton itemId={whisky.id} />
+        <AddToCartButton productId={whisky.id} />
       </div>
     </li>
   );

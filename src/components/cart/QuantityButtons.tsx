@@ -6,17 +6,17 @@ import { decrement, increment, setCartItems } from '@/lib/redux/slices/cartSlice
 import { decrementCartItem, getCartItems, incrementCartItem } from '@/lib/apiClient/cartApiClient';
 
 interface QuantityButtonsProps {
-  itemId: number;
+  productId: number;
   quantity: number;
 }
 
-export const QuantityButtons = ({ itemId, quantity }: QuantityButtonsProps) => {
+export const QuantityButtons = ({ productId, quantity }: QuantityButtonsProps) => {
   const dispatch = useAppDispatch();
 
   const handleDecrement = async () => {
     try {
-      dispatch(decrement({ itemId }));
-      await decrementCartItem(itemId);
+      dispatch(decrement({ productId }));
+      await decrementCartItem(productId);
     } catch (error) {
       alert('Failed to update cart.');
       const cartItems = await getCartItems();
@@ -26,8 +26,8 @@ export const QuantityButtons = ({ itemId, quantity }: QuantityButtonsProps) => {
 
   const handleIncrement = async () => {
     try {
-      dispatch(increment({ itemId }));
-      await incrementCartItem(itemId);
+      dispatch(increment({ productId }));
+      await incrementCartItem(productId);
     } catch (error) {
       alert('Failed to update cart.');
       const cartItems = await getCartItems();

@@ -27,7 +27,7 @@ export const CartItemRow = ({ cartItem }: CartItemRowProps) => {
         <div className="w-4/5 pl-3 flex flex-col">
           <div className="h-12 mb-auto text-sm">{item.name}</div>
           <div className="flex items-center justify-between">
-            <QuantityButtons itemId={item.id} quantity={cartItem.quantity} />
+            <QuantityButtons productId={item.id} quantity={cartItem.quantity} />
             <div className="font-bold">$ {item.priceInCent / 100}</div>
           </div>
         </div>

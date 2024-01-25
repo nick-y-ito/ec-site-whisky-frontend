@@ -22,21 +22,21 @@ const cartSlice = createSlice({
         0,
       );
     },
-    increment: (state, action: PayloadAction<{ itemId: number }>) => {
-      const targetItem = state.items.find((item) => item.id === action.payload.itemId);
+    increment: (state, action: PayloadAction<{ productId: number }>) => {
+      const targetItem = state.items.find((item) => item.id === action.payload.productId);
       if (targetItem) {
         targetItem.quantity += 1;
         state.totalQuantity += 1;
       } else {
-        state.items.push({ id: action.payload.itemId, quantity: 1 });
+        state.items.push({ id: action.payload.productId, quantity: 1 });
         state.totalQuantity += 1;
       }
     },
-    decrement: (state, action: PayloadAction<{ itemId: number }>) => {
-      const targetItem = state.items.find((item) => item.id === action.payload.itemId);
+    decrement: (state, action: PayloadAction<{ productId: number }>) => {
+      const targetItem = state.items.find((item) => item.id === action.payload.productId);
       if (!targetItem) return;
       if (targetItem.quantity === 1) {
-        state.items = state.items.filter((item) => item.id !== action.payload.itemId);
+        state.items = state.items.filter((item) => item.id !== action.payload.productId);
       } else {
         targetItem.quantity -= 1;
       }
