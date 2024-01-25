@@ -21,7 +21,7 @@ export const ItemList = () => {
   return (
     <ul className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5">
       {products.map((p, i) => (
-        <ItemCard key={i} whisky={p} />
+        <ItemCard key={i} product={p} />
       ))}
     </ul>
   );

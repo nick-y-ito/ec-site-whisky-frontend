@@ -4,18 +4,18 @@ import { Product } from '@/data/whisky';
 import { AddToCartButton } from '@/components/AddToCartButton';
 
 interface ItemCardProps {
-  whisky: Product;
+  product: Product;
 }
 
-export const ItemCard: React.FC<ItemCardProps> = ({ whisky }) => {
+export const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
   return (
     <li className="shadow-xl rounded-lg w-full h-full">
       <div className="py-2 h-[200px] bg-radial-gradient rounded-t-lg">
         <div className="w-full h-full relative">
           <Image
             className="object-contain"
-            src={`/images/whisky${whisky.imgPath}`}
-            alt={whisky.name}
+            src={`/images/whisky${product.imgPath}`}
+            alt={product.name}
             fill
             sizes="300px"
           />
@@ -23,12 +23,12 @@ export const ItemCard: React.FC<ItemCardProps> = ({ whisky }) => {
       </div>
       <div className="flex flex-col p-3 rounded-b-lg bg-gray-100">
         <div className="h-10 text-sm">
-          <p className="truncate-2-lines text-center">{whisky.name}</p>
+          <p className="truncate-2-lines text-center">{product.name}</p>
         </div>
         <div className="h-10 text-xl font-bold flex justify-center items-center">
-          ${whisky.priceInCent / 100}
+          ${product.priceInCent / 100}
         </div>
-        <AddToCartButton productId={whisky.id} />
+        <AddToCartButton productId={product.id} />
       </div>
     </li>
   );
