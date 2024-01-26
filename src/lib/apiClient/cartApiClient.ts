@@ -1,11 +1,13 @@
 import { CartItem } from '@/types/definition';
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+
 /**
  * Get cart items from the server
  * @returns Cart items from the server
  */
 export async function getCartItems(): Promise<CartItem[]> {
-  const res = await fetch('/api/cart', {
+  const res = await fetch(`${API_BASE_URL}/api/cart`, {
     method: 'GET',
   });
   const data = await res.json();
@@ -17,7 +19,7 @@ export async function getCartItems(): Promise<CartItem[]> {
  * @param productId
  */
 export async function addCartItem(productId: number) {
-  await fetch('/api/cart', {
+  await fetch(`${API_BASE_URL}/api/cart`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -32,7 +34,7 @@ export async function addCartItem(productId: number) {
  * @param productId
  */
 export async function incrementCartItem(productId: number) {
-  await fetch(`/api/cart/${productId}`, {
+  await fetch(`${API_BASE_URL}/api/cart/${productId}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -47,7 +49,7 @@ export async function incrementCartItem(productId: number) {
  * @param productId
  */
 export async function decrementCartItem(productId: number) {
-  await fetch(`/api/cart/${productId}`, {
+  await fetch(`${API_BASE_URL}/api/cart/${productId}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
