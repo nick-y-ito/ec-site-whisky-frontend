@@ -1,3 +1,4 @@
+import { ProductList } from '@/models/ProductList';
 import { CartItem } from '@/types/definition';
 
 export class Cart {
@@ -24,5 +25,13 @@ export class Cart {
     } else {
       targetItem.quantity -= 1;
     }
+  }
+
+  static totalPriceInCent(cartItems: CartItem[]) {
+    return cartItems.reduce((acc, item) => {
+      const product = ProductList.products.find((product) => product.id === item.id);
+      if (!product) return acc;
+      return acc + product.priceInCent * item.quantity;
+    }, 0);
   }
 }
