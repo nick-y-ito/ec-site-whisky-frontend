@@ -2,10 +2,11 @@
 
 import { Overlay } from '@/components/ui/Overlay';
 import { cn } from '@/lib/utils';
+import { ReactNode } from 'react';
 import { RxCross1 } from 'react-icons/rx';
 
 interface DrawerProps {
-  children: React.ReactNode;
+  children: ReactNode;
   isOpen: boolean;
   onClose: () => void;
 }

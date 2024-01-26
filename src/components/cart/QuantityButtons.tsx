@@ -4,6 +4,7 @@ import { FaMinus } from 'react-icons/fa6';
 import { useAppDispatch } from '@/lib/redux/hooks';
 import { decrement, increment, setCartItems } from '@/lib/redux/slices/cartSlice';
 import { decrementCartItem, getCartItems, incrementCartItem } from '@/lib/apiClient/cartApiClient';
+import { ReactNode } from 'react';
 
 interface QuantityButtonsProps {
   productId: number;
@@ -49,7 +50,7 @@ export const QuantityButtons = ({ productId, quantity }: QuantityButtonsProps) =
 };
 
 interface QuantityButtonProps {
-  children: React.ReactNode;
+  children: ReactNode;
   onClick?: () => void;
 }
 

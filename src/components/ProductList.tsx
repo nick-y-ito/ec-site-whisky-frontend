@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 import { AddToCartButton, AddToCartButtonSkeleton } from '@/components/AddToCartButton';
 import { Category, isCategory } from '@/types/productType';
@@ -12,7 +11,7 @@ import {
 } from '@/types/sortFilterTypes';
 import { getProductList } from '@/lib/apiClient/productApiClient';
 import { Skeleton } from '@/components/ui/Skeleton';
-import { Suspense } from 'react';
+import { FC, Suspense } from 'react';
 
 export const dynamic = 'force-dynamic';
 
@@ -38,7 +37,7 @@ interface ProductCardsProps {
   };
 }
 
-export const ProductCards: React.FC<ProductCardsProps> = async ({ searchParams }) => {
+export const ProductCards: FC<ProductCardsProps> = async ({ searchParams }) => {
   const keyword = searchParams.keyword;
   const categoryParam = searchParams.category;
   const sortByParam = searchParams.sortBy;

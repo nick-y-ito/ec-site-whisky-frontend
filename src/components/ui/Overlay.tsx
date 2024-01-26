@@ -1,8 +1,9 @@
 import { useDisableBodyScroll } from '@/lib/hooks/useDisableBodyScroll';
 import { cn } from '@/lib/utils';
+import { ReactNode } from 'react';
 
 interface OverlayProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   className?: string;
   isOpen: boolean;
   onClose: () => void;
