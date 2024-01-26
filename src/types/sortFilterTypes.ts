@@ -6,7 +6,7 @@ import { Category } from '@/types/productType';
 export const SORT_BY = ['name', 'price'] as const;
 export type SortBy = (typeof SORT_BY)[number];
 // Type guard
-export const isSortBy = (str: string | null): str is SortBy => SORT_BY.includes(str as SortBy);
+export const isSortBy = (str?: unknown): str is SortBy => SORT_BY.includes(str as SortBy);
 
 /**
  * Types for Sort Order
@@ -14,7 +14,7 @@ export const isSortBy = (str: string | null): str is SortBy => SORT_BY.includes(
 const SORT_ORDER = ['asc', 'desc'] as const;
 export type SortOrder = (typeof SORT_ORDER)[number];
 // Type guard
-export const isSortOrder = (str: string | null): str is SortOrder =>
+export const isSortOrder = (str?: unknown): str is SortOrder =>
   SORT_ORDER.includes(str as SortOrder);
 
 /**
@@ -28,6 +28,8 @@ export interface Sort {
 }
 
 export type Keyword = string;
+// Type guard
+export const isKeyword = (str?: unknown): str is Keyword => typeof str === 'string';
 
 /**
  * Interface for Filter object
