@@ -57,3 +57,25 @@ export async function decrementCartItem(productId: number) {
     body: JSON.stringify({ action: 'decrement' }),
   });
 }
+
+/**
+ * Get the total price of the cart
+ */
+export async function getTotalPriceInCent(cartItems: CartItem[]): Promise<number> {
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/cart/total-price`, {
+      method: 'POST',
+      body: JSON.stringify({ cartItems }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await res.json();
+    return data.totalPrice;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(`Failed to fetch total price: ${error.message}`);
+    }
+    throw new Error('Failed to fetch total price');
+  }
+}
