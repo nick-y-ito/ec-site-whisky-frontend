@@ -10,7 +10,6 @@ interface HomePageProps {
 }
 
 const Home = ({ searchParams }: HomePageProps) => {
-  console.log('Rendering Home');
   return (
     <main>
       <HeroSection />
