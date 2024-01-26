@@ -7,7 +7,7 @@ export class ProductList {
   private static _filteredProducts: Product[] = products;
 
   static get products(): Product[] {
-    return ProductList.products;
+    return ProductList._products;
   }
 
   static get filteredProducts(): Product[] {
