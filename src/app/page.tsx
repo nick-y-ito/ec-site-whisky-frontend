@@ -1,9 +1,15 @@
+import { ProductList } from '@/components/ProductList';
 import { HeroSection } from '@/components/base/HeroSection';
 import { LeftSideBar } from '@/components/base/LeftSideBar';
 import { ProductFilterMobile } from '@/components/filter/ProductFilterMobile';
-import { ProductList } from '@/components/base/ProductList';
 
-const Home = () => {
+interface HomePageProps {
+  searchParams: {
+    [key: string]: string | string[] | undefined;
+  };
+}
+
+const Home = ({ searchParams }: HomePageProps) => {
   return (
     <main>
       <HeroSection />
@@ -11,7 +17,7 @@ const Home = () => {
         <LeftSideBar />
         <div className="w-full max-w-screen-2xl">
           <ProductFilterMobile />
-          <ProductList />
+          <ProductList searchParams={searchParams} />
         </div>
       </div>
     </main>

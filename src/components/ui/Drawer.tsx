@@ -1,6 +1,6 @@
 'use client';
 
-import { Overlay } from '@/components/ui/overlay';
+import { Overlay } from '@/components/ui/Overlay';
 import { cn } from '@/lib/utils';
 import { RxCross1 } from 'react-icons/rx';
 

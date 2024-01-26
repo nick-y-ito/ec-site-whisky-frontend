@@ -1,9 +1,12 @@
+'use client';
+
 import { useAppDispatch } from '@/lib/redux/hooks';
 import { increment, setCartItems } from '@/lib/redux/slices/cartSlice';
 import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 import { getCartItems, incrementCartItem } from '@/lib/apiClient/cartApiClient';
+import { Skeleton } from '@/components/ui/Skeleton';
 
 interface CartIconProps {
   productId: number;
@@ -49,4 +52,8 @@ export const AddToCartButton = ({ productId }: CartIconProps) => {
       )}
     </button>
   );
+};
+
+export const AddToCartButtonSkeleton = () => {
+  return <Skeleton className="h-10 rounded-xl" />;
 };

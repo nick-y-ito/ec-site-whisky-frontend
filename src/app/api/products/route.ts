@@ -3,31 +3,40 @@ import { Category, isCategory } from '@/types/productType';
 import { SortBy, SortOrder, isSortBy, isSortOrder } from '@/types/sortFilterTypes';
 import { NextRequest, NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest) {
-  // Get query parameters object
-  const searchParams = req.nextUrl.searchParams;
+  await new Promise((resolve) => setTimeout(resolve, 3000));
 
-  // Get plain query parameters
-  const keywordParam = searchParams.get('keyword');
-  const categoryParam = searchParams.get('category');
-  const sortByParam = searchParams.get('sortBy');
-  const sortOrderParam = searchParams.get('sortOrder');
+  try {
+    // Get query parameters object
+    const searchParams = req.nextUrl.searchParams;
 
-  // Convert query parameters to the correct type.
-  // If the query parameter is invalid, set it to undefined.
-  const keyword = keywordParam ?? undefined;
-  const category = isCategory(categoryParam) ? (categoryParam as Category) : undefined;
-  const sortBy = isSortBy(sortByParam) ? (sortByParam as SortBy) : undefined;
-  const sortOrder = isSortOrder(sortOrderParam) ? (sortOrderParam as SortOrder) : undefined;
+    // Get plain query parameters
+    const keywordParam = searchParams.get('keyword');
+    const categoryParam = searchParams.get('category');
+    const sortByParam = searchParams.get('sortBy');
+    const sortOrderParam = searchParams.get('sortOrder');
 
-  ProductList.filterProducts({ keyword, category });
-  ProductList.sortProducts({ sortBy, sortOrder });
+    // Convert query parameters to the correct type.
+    // If the query parameter is invalid, set it to undefined.
+    const keyword = keywordParam ?? undefined;
+    const category = isCategory(categoryParam) ? (categoryParam as Category) : undefined;
+    const sortBy = isSortBy(sortByParam) ? (sortByParam as SortBy) : undefined;
+    const sortOrder = isSortOrder(sortOrderParam) ? (sortOrderParam as SortOrder) : undefined;
 
-  const products = await new Promise((resolve) => {
-    // setTimeout(() => {
-      resolve(ProductList.filteredProducts);
-    // }, 3000);
-  });
+    // Filter and sort products
+    ProductList.filterProducts({ keyword, category });
+    ProductList.sortProducts({ sortBy, sortOrder });
 
-  return NextResponse.json({ products });
+    // Get filtered and sorted products
+    const products = ProductList.filteredProducts;
+
+    return NextResponse.json({ products });
+  } catch (error) {
+    if (error instanceof Error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+    return NextResponse.json({ error: 'Failed to fetch products' }, { status: 500 });
+  }
 }
