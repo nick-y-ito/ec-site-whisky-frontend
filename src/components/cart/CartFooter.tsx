@@ -1,24 +1,19 @@
 import { cn } from '@/lib/utils';
 import { useAppSelector } from '@/lib/redux/hooks';
-import { Product } from '@/data/products';
 import { useEffect, useState } from 'react';
-import { getProductList } from '@/lib/apiClient/productApiClient';
+import { getTotalPriceInCent } from '@/lib/apiClient/cartApiClient';
 
 export const CartFooter = () => {
   const cartItems = useAppSelector((state) => state.cart.items);
-  const [products, setProducts] = useState<Product[]>([]);
   const totalQuantity = useAppSelector((state) => state.cart.totalQuantity);
-  const totalPriceInCent = cartItems.reduce((acc, item) => {
-    const price = products.find((i) => i.id === item.id)?.priceInCent;
-    return price ? acc + price * item.quantity : acc;
-  }, 0);
+  const [totalPriceInCent, setTotalPriceInCent] = useState(0);
 
   useEffect(() => {
     (async () => {
-      const productList = await getProductList({});
-      setProducts(productList);
+      const totalPrice = await getTotalPriceInCent(cartItems);
+      setTotalPriceInCent(totalPrice);
     })();
-  }, []);
+  }, [cartItems]);
 
   return (
     <div
